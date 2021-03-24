@@ -1,0 +1,26 @@
+*********** Unit Under Test ********************
+** Cell name: Single-Ended Folded Voltage Combiners
+** 
+** R. Póvoa, N. Lourenço, R. Martins, A. Canelas, N. Horta, JG Goes,  "A Folded Voltage-
+** Combiners Biased Amplifier for Low Voltage and High Energy-Efficiency Applications", 
+** IEEE Transactions on Circuits and Systems II: Express Briefs, 
+** Vol. 1, No. 1, pp. 1 - 5, April, 2019,
+
+.subckt folded_voltage_combiners_amplifier gnd vbiasn vbiasp vdd vin vip vop
+mnm6 vdd    vip     vp      vp      nmos12 w='_wn6/_nfn6' l=_ln6 m='_nfn6'
+mnm7 vdd    vin     vn      vn      nmos12 w='_wn6/_nfn6' l=_ln6 m='_nfn6'
+mnm8 vp     vbiasn  gnd     gnd     nmos12 w='_wn8/_nfn8' l=_ln8 m='_nfn8'
+mnm9 vn     vbiasn  gnd     gnd     nmos12 w='_wn8/_nfn8' l=_ln8 m='_nfn8'
+mnm4 vop    net8    gnd     gnd     nmos12 w='_wn4/_nfn4' l=_ln4 m='_nfn4'
+mnm5 net8   net8    gnd     gnd     nmos12 w='_wn4/_nfn4' l=_ln4 m='_nfn4'
+mnm1 net064 vin     vp      vp      nmos12 w='_wn0/_nfn0' l=_ln0 m='_nfn0'
+mnm0 net0102 vip    vn      vn      nmos12 w='_wn0/_nfn0' l=_ln0 m='_nfn0'
+mpm6 vn     vip     net077  net077  pmos12 w='_wp5/_nfp5' l=_lp5 m='_nfp5'
+mpm4 net077 vbiasp  vdd     vdd     pmos12 w='_wp4/_nfp4' l=_lp4 m='_nfp4'
+mpm5 vp     vin     net077  net077  pmos12 w='_wp5/_nfp5' l=_lp5 m='_nfp5'
+mpm3 net8   net064  vdd     vdd     pmos12 w='_wp0/_nfp0' l=_lp0 m='_nfp0'
+mpm2 net064 net064  vdd     vdd     pmos12 w='_wp1/_nfp1' l=_lp1 m='_nfp1'
+mpm1 net0102 net0102 vdd    vdd     pmos12 w='_wp1/_nfp1' l=_lp1 m='_nfp1'
+mpm0 vop    net0102 vdd     vdd     pmos12 w='_wp0/_nfp0' l=_lp0 m='_nfp0'
+.ends
+** End of subcircuit definition.

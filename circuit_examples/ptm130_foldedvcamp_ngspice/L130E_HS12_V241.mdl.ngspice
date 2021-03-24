@@ -1,0 +1,277 @@
+*DEVICE 1
+.model N_12_HSL130E NMOS
+*****Model Selectors/Controllers*********************************
++ LEVEL = 8  VERSION = 3.24000E+00
++  BINUNIT   =   2.0000E+00                          MOBMOD    =   1.0000E+00                        
++  CAPMOD    =   3.0000E+00                          NQSMOD    =   0.0000E+00                        
++  NOIMOD    =   2.0000E+00                        
+
+
+*****Process Parameters******************************************
++  NGATE     =   1.0000E+21                          RSH       =   7.0000E+00                        
++  TOX       =  '2.7300E-09+DTOX_N_12_HSL130E'       TOXM      =   2.7300E-09                        
++  XJ        =   1.0500E-07                          NCH       =   1.7000E+17                        
+
+
+*****Basic Model Parameters**************************************
++  VTH0      =  '2.1650E-01+DVTH0_N_12_HSL130E'      VFB       =  -9.3677E-01                        
++  K1        =   3.3390E-01                          K2        =  -4.0700E-02                        
++  K3        =   1.8000E+01                          K3B       =   1.0800E+01                        
++  W0        =   2.5000E-06                          NLX       =   1.6100E-07                        
++  DVT0      =   6.0000E+00                          DVT1      =   2.0000E+00                        
++  DVT2      =   0.0000E+00                          DVT0W     =   1.0000E-02                        
++  DVT1W     =   1.0000E+08                          DVT2W     =   0.0000E+00                        
++  U0        =  '4.1550E-02+DU0_N_12_HSL130E'        UA        =   1.0000E-10                        
++  UB        =   1.6800E-18                          UC        =   9.0000E-11                        
++  VSAT      =  '9.5000E+04+DVSAT_N_12_HSL130E'      A0        =   1.1750E+00                        
++  AGS       =   7.0000E-01                          B0        =   1.0000E-05                        
++  B1        =   1.0000E-04                          KETA      =  -1.5000E-02                        
++  A1        =   0.0000E+00                          A2        =   1.0000E+00                        
++  WINT      =  '3.5000E-08+DWINT_N_12_HSL130E'      LINT      =  '1.4100E-08+DLINT_N_12_HSL130E'         
++  DWG       =   0.0000E+00                          DWB       =   3.0000E-08                        
++  VOFF      =  -1.2000E-01                          NFACTOR   =   7.3710E-01                        
++  ETA0      =   1.0000E+00                          ETAB      =  -3.0000E-01                        
++  DSUB      =   1.5000E+00                          CIT       =   0.0000E+00                        
++  CDSC      =   2.4000E-04                          CDSCB     =   0.0000E+00                        
++  CDSCD     =   2.4000E-04                          PCLM      =   1.3250E+00                        
++  PDIBLC1   =   1.1548E-07                          PDIBLC2   =   4.5000E-02                        
++  PDIBLCB   =  -3.2000E-01                          DROUT     =   1.0000E+00                        
++  PSCBE1    =   4.2400E+08                          PSCBE2    =   1.0000E-05                        
++  PVAG      =   0.0000E+00                          DELTA     =   1.1300E-02                        
+
+
+*****Parameters for Asymmetric and Bias-Dependent Rds Model******
++  RDSW      =  '1.0000E+02+DRDSW_N_12_HSL130E'      PRWB      =   0.0000E+00                        
++  PRWG      =   0.0000E+00                          WR        =   1.0000E+00                        
+
+
+*****Impact Ionization Current Model Parameters******************
+
+
+*****Gate-Induced Drain Leakage Model Parameters*****************
+
+
+*****Gate Dielectric Tunneling Current Model Parameters**********
+
+
+*****Charge and Capacitance Model Parameters*********************
++  XPART     =   1.0000E+00                          CGSO      =  '2.9000E-10+DCGSO_N_12_HSL130E'         
++  CGDO      =  '2.9000E-10+DCGDO_N_12_HSL130E'      CGBO      =   0.0000E-21                        
++  CGSL      =   0.0000E-13                          CGDL      =   0.0000E-13                        
++  CKAPPA    =   6.0000E-01                          CF        =   0.0000E-11                        
++  CLC       =   1.0000E-07                          CLE       =   6.0000E-01                        
++  DLC       =   1.4000E-08                          DWC       =   4.0000E-15                        
++  VFBCV     =  -1.5000E+00                          NOFF      =   1.0000E+00                        
++  VOFFCV    =  -3.2850E-02                          ACDE      =   3.0000E-01                        
++  MOIN      =   1.0650E+01                        
+
+
+*****High-Speed/RF Model Parameters******************************
+
+
+*****Flicker and Thermal Noise Model Parameters******************
++  NOIA        =   1.5800E+19                      NOIB        =   1.1372E+05
++  NOIC        =  -1.7300E-14                      EF          =   0.9701
++  EM          =   2.6036E+07
+
+*****Layout-Dependent Parasitics Model Parameters****************
++  XL        =   0.0000E+00                          XW        =   0.0000E+00                        
+
+
+*****Asymmetric Source/Drain Junction Diode Model Parameters*****
++  JSW       =   7.0000E-12                          JS        =   6.7300E-06                        
++  IJTH      =   1.0000E-01                          CJ        =  '7.2200E-04+DCJ_N_12_HSL130E'           
++  MJ        =   2.6400E-01                          MJSW      =   1.0500E-01                        
++  CJSW      =  '9.9300E-11+DCJSW_N_12_HSL130E'      CJSWG     =  '2.6600E-10+DCJSWG_N_12_HSL130E'        
++  MJSWG     =   9.9500E-01                          PBSW      =   6.0000E-01                        
++  PB        =   6.2000E-01                          PBSWG     =   6.0000E-01                        
+
+
+*****Temperature Dependence Parameters***************************
++  TNOM      =   2.5000E+01                          UTE       =  -1.0000E+00                        
++  KT1       =  -2.4350E-01                          KT1L      =   5.0000E-09                        
++  KT2       =  -3.6000E-02                          UA1       =   4.7000E-09                        
++  UB1       =  -5.1000E-18                          UC1       =  -5.9000E-11                        
++  PRT       =  -7.6000E+01                          AT        =   4.3000E+04                        
++  XTI       =   3.0000E+00                          TPB       =   1.7600E-03                        
++  TPBSW     =   1.5400E-03                          TPBSWG    =   1.5400E-03                        
++  TCJ       =   1.0300E-03                          TCJSW     =   7.8400E-04                        
++  TCJSWG    =   5.8400E-03                                                  
+
+
+*****dW and dL Parameters****************************************
++  WL        =   0.0000E+00                          WLN       =   1.0000E+00                        
++  WW        =  -5.4000E-15                          WWN       =   1.0000E+00                        
++  WWL       =   0.0000E+00                          LL        =  -1.0400E-15                        
++  LLN       =   1.0000E+00                          LW        =   0.0000E+00                        
++  LWN       =   1.0000E+00                          LWL       =   0.0000E+00                        
++  LLC       =   1.4000E-15                          LWC       =   0.0000E+00                        
++  LWLC      =   0.0000E+00                          WLC       =   0.0000E+00                        
++  WWC       =   0.0000E+00                          WWLC      =   0.0000E+00                        
+
+
+*****Range Parameters for Model Application**********************
++  LMIN      =   1.2000E-07                          LMAX      =   5.0000E-05                        
++  WMIN      =   1.6000E-07                          WMAX      =   1.0000E-04                        
+
+
+*****Other Parameters********************************************
++  ELM       =   5.0000E+00                          ACM       =   1.2000E+01                        
++  LDIF      =   9.0000E-08                          HDIF      =   1.2500E-07                        
++  CALCACM   =   1.0000E+00                          LK2       =  -9.0000E-10                        
++  LK3       =   1.8000E-06                          WK3       =  -9.6000E-06                        
++  LK3B      =  -3.0000E-06                          WK3B      =   1.0000E-06                        
++  LVSAT     =  -5.4375E-04                          WVSAT     =   8.0000E-03                        
++  PVSAT     = '-3.1850E-10+DPVSAT_N_12_HSL130E'     WUC       =   5.5000E-17                        
++  LU0       =   1.6500E-09                          PU0       =  '8.0000E-17+DPU0_N_12_HSL130E'          
++  WKETA     =  -8.0000E-09                          PKETA     =  -7.0000E-15                        
++  LNFACTOR  =   4.5000E-07                          WNFACTOR  =  -6.5450E-08                        
++  PETAB     =   8.0000E-15                          WKT1      =   7.0000E-09                        
++  WKT2      =   4.0000E-09                          WAT       =  -1.0000E-03                        
++  WUTE      =   5.0000E-08                          WUC1      =   4.0000E-17                        
++  WKT1L     =  -7.0000E-16                          LVTH0     = '-1.3000E-09+DLVTH0_N_12_HSL130E'        
++  WU0       =  '3.1000E-10+DWU0_N_12_HSL130E'       WVTH0     =  '4.5500E-10+DWVTH0_N_12_HSL130E'        
++  PVTH0     =  '6.7000E-17+DPVTH0_N_12_HSL130E'     PNFACTOR  = '-4.0000E-14+DPNFACTOR_N_12_HSL130E'     
++  NJ        =   1.2000E+00                          WK2       =  -2.0000E-09
+
+
+*DEVICE 2
+.model P_12_HSL130E PMOS
+*****Model Selectors/Controllers*********************************
++ LEVEL = 8  VERSION = 3.2400E+00
++  BINUNIT   =   2.0000E+00                          MOBMOD    =   1.0000E+00                        
++  CAPMOD    =   3.0000E+00                          NQSMOD    =   0.0000E+00                        
++  NOIMOD    =   2.0000E+00                        
+
+
+*****Process Parameters******************************************
++  NGATE     =   1.0000E+21                          RSH       =   7.0000E+00                        
++  TOX       =  '2.8600E-09+DTOX_P_12_HSL130E'       TOXM      =   2.8600E-09                        
++  XJ        =   1.5500E-07                          NCH       =   1.7000E+17                        
+
+
+*****Basic Model Parameters**************************************
++  VTH0      = '-2.5080E-01+DVTH0_P_12_HSL130E'      VFB       =  -9.8260E-01                        
++  K1        =   4.2180E-01                          K2        =  -2.1400E-02                        
++  K3        =  -2.7250E+00                          K3B       =   2.3000E+00                        
++  W0        =   5.0000E-07                          NLX       =   4.5000E-08                        
++  DVT0      =   5.8500E+01                          DVT1      =   2.9280E+00                        
++  DVT2      =   1.0310E-01                          DVT0W     =   0.0000E+00                        
++  DVT1W     =   1.0000E+05                          DVT2W     =   0.0000E+00                        
++  U0        =  '1.2050E-02+DU0_P_12_HSL130E'        UA        =   1.5300E-09                        
++  UB        =   2.2000E-19                          UC        =  -7.0000E-11                        
++  VSAT      =  '1.1700E+05+DVSAT_P_12_HSL130E'      A0        =   2.0000E+00                        
++  AGS       =   4.8020E-01                          B0        =   8.0000E-08                        
++  B1        =   0.0000E+00                          KETA      =   0.0000E+00                        
++  A1        =   0.0000E+00                          A2        =   1.0000E+00                        
++  WINT      =  '3.8070E-08+DWINT_P_12_HSL130E'      LINT      = '-1.0800E-08+DLINT_P_12_HSL130E'         
++  DWG       =  -2.4700E-08                          DWB       =  -4.8000E-09                        
++  VOFF      =  -1.2000E-01                          NFACTOR   =   1.5000E+00                        
++  ETA0      =   9.6800E-02                          ETAB      =  -1.6900E-02                        
++  DSUB      =   4.7260E-01                          CIT       =   0.0000E+00                        
++  CDSC      =   0.0000E+00                          CDSCB     =   0.0000E+00                        
++  CDSCD     =   2.4000E-04                          PCLM      =   1.0800E+00                        
++  PDIBLC1   =   1.1500E-07                          PDIBLC2   =   1.0000E-01                        
++  PDIBLCB   =   0.0000E+00                          DROUT     =   5.6000E-01                        
++  PSCBE1    =   4.2400E+08                          PSCBE2    =   1.0000E-05                        
++  PVAG      =   1.1000E+00                          DELTA     =   8.3500E-03                        
+
+
+*****Parameters for Asymmetric and Bias-Dependent Rds Model******
++  RDSW      =  '1.3038E+02+DRDSW_P_12_HSL130E'      PRWB      =  -5.0000E-01                        
++  PRWG      =   1.5000E-01                          WR        =   1.0000E+00                        
+
+
+*****Impact Ionization Current Model Parameters******************
+
+
+*****Gate-Induced Drain Leakage Model Parameters*****************
+
+
+*****Gate Dielectric Tunneling Current Model Parameters**********
+
+
+*****Charge and Capacitance Model Parameters*********************
++  XPART     =   1.0000E+00                          CGSO      =  '3.1000E-10+DCGSO_P_12_HSL130E'         
++  CGDO      =  '3.1000E-10+DCGDO_P_12_HSL130E'      CGBO      =   0.0000E-21                        
++  CGSL      =   0.0000E+00                          CGDL      =   0.0000E+00                        
++  CKAPPA    =   6.0000E-01                          CF        =   0.0000E+00                        
++  CLC       =   1.0000E-07                          CLE       =   6.0000E-01                        
++  DLC       =   1.4000E-08                          DWC       =   0.0000E+00                        
++  VFBCV     =  -1.0010E+00                          NOFF      =   1.0000E+00                        
++  VOFFCV    =   2.2400E-08                          ACDE      =   6.0370E-01                        
++  MOIN      =   1.0125E+01                        
+
+
+*****High-Speed/RF Model Parameters******************************
+
+
+*****Flicker and Thermal Noise Model Parameters******************
++  NOIA        =   9.7813E+19                      NOIB        =   3.0815E+04
++  NOIC        =   3.0136E-11                      EF          =   1.1919
++  EM          =   4.6143E+07
+
+
+*****Layout-Dependent Parasitics Model Parameters****************
++  XL        =   0.0000E+00                          XW        =   0.0000E+00                        
+
+
+*****Asymmetric Source/Drain Junction Diode Model Parameters*****
++  JSW       =   1.0000E-12                          JS        =   1.4200E-07                        
++  IJTH      =   1.0000E-01                          CJ        =  '9.5300E-04+DCJ_P_12_HSL130E'           
++  MJ        =   2.9500E-01                          MJSW      =   1.3500E-01                        
++  CJSW      =  '1.0500E-10+DCJSW_P_12_HSL130E'      CJSWG     =  '4.4600E-10+DCJSWG_P_12_HSL130E'        
++  MJSWG     =   9.2100E-01                          PBSW      =   6.5200E-01                        
++  PB        =   6.8400E-01                          PBSWG     =   1.2900E-00                        
+
+
+*****Temperature Dependence Parameters***************************
++  TNOM      =   2.5000E+01                          UTE       =  -1.3764E+00                        
++  KT1       =  -2.7220E-01                          KT1L      =  -1.5300E-09                        
++  KT2       =  -5.6000E-02                          UA1       =   5.9500E-10                        
++  UB1       =  -3.4000E-18                          UC1       =  -1.0000E-10                        
++  PRT       =  -1.0000E+02                          AT        =   0.0000E+00                        
++  XTI       =   3.0000E+00                          TPB       =   1.7000E-03                        
++  TPBSW     =   2.5900E-03                          TPBSWG    =   3.9300E-03                        
++  TCJ       =   9.3400E-04                          TCJSW     =   8.6700E-04                        
++  TCJSWG    =   2.8700E-03                                                  
+
+
+*****dW and dL Parameters****************************************
++  WL        =   0.0000E+00                          WLN       =   1.0000E+00                        
++  WW        =  -7.8000E-15                          WWN       =   1.0000E+00                        
++  WWL       =   5.6000E-23                          LL        =   2.3440E-15                        
++  LLN       =   1.0000E+00                          LW        =   0.0000E+00                        
++  LWN       =   1.0000E+00                          LWL       =  -9.0000E-23                        
++  LLC       =   1.0815E-15                          LWC       =   0.0000E+00                        
++  LWLC      =   0.0000E+00                          WLC       =   0.0000E+00                        
++  WWC       =   0.0000E+00                          WWLC      =   0.0000E+00                        
+
+
+*****Range Parameters for Model Application**********************
++  LMIN      =   1.2000E-07                          LMAX      =   5.0000E-05                        
++  WMIN      =   1.6000E-07                          WMAX      =   1.0000E-04                        
+
+
+*****Other Parameters********************************************
++  ELM       =   5.0000E+00                          ACM       =   1.2000E+01                        
++  LDIF      =   9.0000E-08                          HDIF      =   1.2500E-07                        
++  CALCACM   =   1.0000E+00                          PK1       =   6.3000E-16                        
++  LK2       =  -1.1224E-09                          PK2       =  -1.0000E-16                        
++  LK3       =   1.5400E-06                          WK3       =  -3.0000E-07                        
++  LNLX      =   1.5000E-15                          PNLX      =  -2.8892E-22                        
++  WK3B      =   1.0400E-06                          PVSAT     = '-7.2500E-10+DPVSAT_P_12_HSL130E'        
++  WKETA     =   1.0000E-20                          LAGS      =   6.2500E-07                        
++  LNFACTOR  =   2.4000E-07                          PETAB     =   1.0000E-16                        
++  LDELTA    =   1.2700E-09                          WKT1      =   5.0000E-09                        
++  PAT       =  -8.7300E-10                          WUTE      =  -1.4200E-08                        
++  PUTE      =  -2.0000E-15                          WUA1      =  -1.9152E-16                        
++  WUB1      =   5.2500E-25                          WUC1      =   1.2480E-17                        
++  PUC1      =   1.0000E-23                          LVTH0     =  '9.0000E-10+DLVTH0_P_12_HSL130E'        
++  WU0       =  '7.0000E-11+DWU0_P_12_HSL130E'       WVTH0     = '-1.0000E-09+DWVTH0_P_12_HSL130E'        
++  PVTH0     =  '8.0000E-17+DPVTH0_P_12_HSL130E'     PNFACTOR  = '-2.1000E-14+DPNFACTOR_P_12_HSL130E'     
++  LU0       = '-1.0000E-10+DLU0_P_12_HSL130E'       PU0       = '-1.0000E-17+DPU0_P_12_HSL130E'          
++  PETA0     =  -4.8000E-16                          NJ        =   1.0070E+00                        
+
+
+

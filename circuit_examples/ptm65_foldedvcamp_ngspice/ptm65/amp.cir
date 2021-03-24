@@ -1,0 +1,25 @@
+*********** Unit Under Test ********************
+** Library name: amplificadores
+** Cell name: nova_diff
+** View name: schematic
+.subckt _sub2 cmfb gnd vbiasn vbiasp vdd vin vip von vop
+
+xmpm0 vop net11 vdd vdd pch_lvt w='_wp0*_nfp0' l=_lp0 m=1 nf=_nfp0
+xmpm3 von net41 vdd vdd pch_lvt w='_wp0*_nfp0' l=_lp0 m=1 nf=_nfp0
+xmpm1 net11 net11 vdd vdd pch_lvt w='_wp1*_nfp1' l=_lp1 m=1 nf=_nfp1
+xmpm2 net41 net41 vdd vdd pch_lvt w='_wp1*_nfp1' l=_lp1 m=1 nf=_nfp1
+xmpm5 vp vin net26 vdd pch_lvt w='_wp5*_nfp5' l=_lp5 m=1 nf=_nfp5
+xmpm6 vn vip net26 vdd pch_lvt w='_wp5*_nfp5' l=_lp5 m=1 nf=_nfp5
+xmpm4 net26 vbiasp vdd vdd pch_lvt w='_wp4*_nfp4' l=_lp4 m=1 nf=_nfp4
+        
+xmnm0 net11 vip vn gnd nch_lvt l=_ln0 w='_wn0*_nfn0' m=1 nf=_nfn0
+xmnm1 net41 vin vp gnd nch_lvt l=_ln0 w='_wn0*_nfn0' m=1 nf=_nfn0
+xmnm5 von cmfb gnd gnd nch_lvt l=_ln4 w='_wn4*_nfn4' m=1 nf=_nfn4
+xmnm4 voP cmfb gnd gnd nch_lvt l=_ln4 w='_wn4*_nfn4' m=1 nf=_nfn4
+xmnm9 vn vbiasn gnd gnd nch_lvt l=_ln8 w='_wn8*_nfn8' m=1 nf=_nfn8
+xmnm8 vp vbiasn gnd gnd nch_lvt l=_ln8 w='_wn8*_nfn8' m=1 nf=_nfn8
+xmnm7 vdd vin vn gnd nch_lvt l=_ln6 w='_wn6*_nfn6' m=1 nf=_nfn6
+xmnm6 vdd vip vp gnd nch_lvt l=_ln6 w='_wn6*_nfn6' m=1 nf=_nfn6
+
+.ends
+************************************************

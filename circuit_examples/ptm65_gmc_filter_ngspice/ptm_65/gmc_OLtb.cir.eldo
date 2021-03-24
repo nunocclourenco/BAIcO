@@ -1,0 +1,127 @@
+* AIDA generated includes on Wed Sep 30 14:14:01 WEST 2020
+.include 'pipe.inc'
+.include 'global-params.inc'
+*.LIB "$PDK_DIR/tsmc_n65_gp/models/eldo/crn65gplus_2d5_lk_v1d0.eldo" TT_LVT
+
+
+.LIB "$PDK_DIR/tsmc_n65_gp/models/eldo/crn65gplus_2d5_lk_v1d0.eldo" mc
+.LIB "$PDK_DIR/tsmc_n65_gp/models/eldo/crn65gplus_2d5_lk_v1d0.eldo" MC_LVT
+.LIB "$PDK_DIR/tsmc_n65_gp/models/eldo/crn65gplus_2d5_lk_v1d0.eldo" stat
+
+
+.OPTION TUNING=FAST
+.OPTION AEX
+
+.GLOBAL
+.PARAM _vdd=0.900 _vcm=0.450 _ocf=10.205078125 _amp=0.001 _acm=1
+
+.subckt AMP bias inn inp outn outp vdd vss
+mnm0 outp net24 vss vss nch_lvt w='_wn0*_nn0' l=_ln0 nf=_nn0 m=1 
+mnm1 outn net31 vss vss nch_lvt w='_wn0*_nn0' l=_ln0 nf=_nn0 m=1 
+mnm2 net45 net24 vss vss nch_lvt w='_wn2*_nn2' l=_ln2 nf=_nn2 m=1 
+mnm7 net44 net31 vss vss nch_lvt w='_wn2*_nn2' l=_ln2 nf=_nn2 m=1
+mnm12 net24 net24 vss vss nch_lvt w='_wn12*_nn12' l=_ln12 nf=_nn12 m=1 
+mnm9 net31 net31 vss vss nch_lvt w='_wn12*_nn12' l=_ln12 nf=_nn12 m=1 
+mnm50 net20 net24 net51 vss nch_lvt w='_wn50*_nn50' l=_ln50 nf=_nn50 m=1
+mnm51 net43 net31 net50 vss nch_lvt w='_wn50*_nn50' l=_ln50 nf=_nn50 m=1
+mnm56 net51 net24 net47 vss nch_lvt w='_wn56*_nn56' l=_ln56 nf=_nn56 m=1
+mnm57 net50 net31 net49 vss nch_lvt w='_wn56*_nn56' l=_ln56 nf=_nn56 m=1 
+mnm3 net47 net24 net46 vss nch_lvt w='_wn3*_nn3' l=_ln3 nf=_nn3 m=1 
+mnm4 net49 net31 net48 vss nch_lvt w='_wn3*_nn3' l=_ln3 nf=_nn3 m=1 
+mnm60 net46 net24 net45 vss nch_lvt w='_wn60*_nn60' l=_ln60 nf=_nn60 m=1 
+mnm61 net48 net31 net44 vss nch_lvt w='_wn60*_nn60' l=_ln60 nf=_nn60 m=1
+mpm2 net31 inn bias bias pch_lvt w='_wp1*_np1' l=_lp1 nf=_np1 m=1 
+mpm1 net24 inp bias bias pch_lvt w='_wp1*_np1' l=_lp1 nf=_np1 m=1 
+mpm5 outp net43 vdd vdd pch_lvt w='_wp5*_np5' l=_lp5 nf=_np5 m=1
+mpm4 outn net20 vdd vdd pch_lvt w='_wp5*_np5' l=_lp5 nf=_np5 m=1
+mpm3 net20 net20 vdd vdd pch_lvt w='_wp3*_np3' l=_lp3 nf=_np3 m=1 
+mpm0 net43 net43 vdd vdd pch_lvt w='_wp3*_np3' l=_lp3 nf=_np3 m=1 
+.ends
+
+*********** Test-bench *************************
+** Library name: gmcFilter
+** Cell name: gmcFilter_basic_tb
+** View name: schematic
+v2 vss 0 DC=0
+v1 vcm vss DC=_vcm
+v0 vdd vss DC=_vdd
+i0 vdd ibias DC=_ib
+e3 out vss VCVS outplus outminus 1
+e1 inplus vcm VCVS net2 net1 0.5
+e0 inminus vcm VCVS net2 net1 -0.5
+v3 net2 net1 AC _acm SIN 0 _amp _ocf
+xi0 ibias inminus inplus outminus outplus vdd vss AMP
+************************************************
+
+
+*********** Analysis ***************************
+.TEMP 25.0
+.AC DEC 200 1 10000000 SWEEP DATA = PIPEdata
+*.AC DEC 200 1 10000000
+.NOISE v(outplus,outminus) v1 100
+.OPTION BRIEF=0
+************************************************
+.mc 100 PRINT_EXTRACT=ALL PRINT_ASCII_HISTO=1
+
+*********** Performance Measures ***************
+.EXTRACT DCAC label=IDD        (-i(v0))
+.EXTRACT AC   label=GDC        YVAL(VDB(OUT),1)
+.EXTRACT AC   label=GBW        XDOWN(VDB(OUT),0,start,end)
+.EXTRACT AC   label=PM         MIN(VP(OUT),start,Extract(GBW))+(180)
+.EXTRACT AC   label=SDNOISE    YVAL(ONOISE,1)
+.EXTRACT DCAC label=OFFSET     ABS(V(outplus) - 0.45)
+.EXTRACT AC   label=G3DB       (MAX(VDB(OUT))-3)
+.EXTRACT AC   label=BW         XDOWN(VDB(OUT),G3DB,1,GBW,1)
+************************************************
+
+
+*********** OVERDRIVES *************************
+.MEASURE AC vov_mpm0    = param('(lv9(xi0.mpm0)-VGS(xi0.mpm0))')
+.MEASURE AC vov_mpm1    = param('(lv9(xi0.mpm1)-VGS(xi0.mpm1))')
+.MEASURE AC vov_mpm2    = param('(lv9(xi0.mpm2)-VGS(xi0.mpm2))')
+.MEASURE AC vov_mpm3    = param('(lv9(xi0.mpm3)-VGS(xi0.mpm3))')
+.MEASURE AC vov_mpm4    = param('(lv9(xi0.mpm4)-VGS(xi0.mpm4))')
+.MEASURE AC vov_mpm5    = param('(lv9(xi0.mpm5)-VGS(xi0.mpm5))')
+
+.MEASURE AC vov_mnm0    = param('(VGS(xi0.mnm0)-lv9(xi0.mnm0))')
+.MEASURE AC vov_mnm1    = param('(VGS(xi0.mnm1)-lv9(xi0.mnm1))')
+.MEASURE AC vov_mnm2    = param('(VGS(xi0.mnm2)-lv9(xi0.mnm2))')
+.MEASURE AC vov_mnm3    = param('(VGS(xi0.mnm3)-lv9(xi0.mnm3))')
+.MEASURE AC vov_mnm4    = param('(VGS(xi0.mnm4)-lv9(xi0.mnm4))')
+.MEASURE AC vov_mnm7    = param('(VGS(xi0.mnm7)-lv9(xi0.mnm7))')
+.MEASURE AC vov_mnm9    = param('(VGS(xi0.mnm9)-lv9(xi0.mnm9))')
+.MEASURE AC vov_mnm12   = param('(VGS(xi0.mnm12)-lv9(xi0.mnm12))')
+.MEASURE AC vov_mnm50   = param('(VGS(xi0.mnm50)-lv9(xi0.mnm50))')
+.MEASURE AC vov_mnm51   = param('(VGS(xi0.mnm51)-lv9(xi0.mnm51))')
+.MEASURE AC vov_mnm56   = param('(VGS(xi0.mnm56)-lv9(xi0.mnm56))')
+.MEASURE AC vov_mnm57   = param('(VGS(xi0.mnm57)-lv9(xi0.mnm57))')
+.MEASURE AC vov_mnm60   = param('(VGS(xi0.mnm60)-lv9(xi0.mnm60))')
+.MEASURE AC vov_mnm61   = param('(VGS(xi0.mnm61)-lv9(xi0.mnm61))')
+************************************************
+
+
+*********** OVERDRIVES *************************
+.MEASURE AC del_mpm0    = param('(VDSAT(xi0.mpm0)-VDS(xi0.mpm0))')
+.MEASURE AC del_mpm1    = param('(VDSAT(xi0.mpm1)-VDS(xi0.mpm1))')
+.MEASURE AC del_mpm2    = param('(VDSAT(xi0.mpm2)-VDS(xi0.mpm2))')
+.MEASURE AC del_mpm3    = param('(VDSAT(xi0.mpm3)-VDS(xi0.mpm3))')
+.MEASURE AC del_mpm4    = param('(VDSAT(xi0.mpm4)-VDS(xi0.mpm4))')
+.MEASURE AC del_mpm5    = param('(VDSAT(xi0.mpm5)-VDS(xi0.mpm5))')
+
+.MEASURE AC del_mnm0    = param('(VDS(xi0.mnm0)-VDSAT(xi0.mnm0))')
+.MEASURE AC del_mnm1    = param('(VDS(xi0.mnm1)-VDSAT(xi0.mnm1))')
+.MEASURE AC del_mnm2    = param('(VDS(xi0.mnm2)-VDSAT(xi0.mnm2))')
+.MEASURE AC del_mnm3    = param('(VDS(xi0.mnm3)-VDSAT(xi0.mnm3))')
+.MEASURE AC del_mnm4    = param('(VDS(xi0.mnm4)-VDSAT(xi0.mnm4))')
+.MEASURE AC del_mnm7    = param('(VDS(xi0.mnm7)-VDSAT(xi0.mnm7))')
+.MEASURE AC del_mnm9    = param('(VDS(xi0.mnm9)-VDSAT(xi0.mnm9))')
+.MEASURE AC del_mnm12   = param('(VDS(xi0.mnm12)-VDSAT(xi0.mnm12))')
+.MEASURE AC del_mnm50   = param('(VDS(xi0.mnm50)-VDSAT(xi0.mnm50))')
+.MEASURE AC del_mnm51   = param('(VDS(xi0.mnm51)-VDSAT(xi0.mnm51))')
+.MEASURE AC del_mnm56   = param('(VDS(xi0.mnm56)-VDSAT(xi0.mnm56))')
+.MEASURE AC del_mnm57   = param('(VDS(xi0.mnm57)-VDSAT(xi0.mnm57))')
+.MEASURE AC del_mnm60   = param('(VDS(xi0.mnm60)-VDSAT(xi0.mnm60))')
+.MEASURE AC del_mnm61   = param('(VDS(xi0.mnm61)-VDSAT(xi0.mnm61))')
+************************************************
+
+.END

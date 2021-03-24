@@ -5,7 +5,7 @@ Optimization is the de facto approach for Analog IC Sizing automation. However, 
 ## Device models
 BAIcO considers devices models for 130nm and 65nm from (http://ptm.asu.edu/) with the corner options for FF, SS, SF, and FS.
 
-## Circuit examples;
+## Circuit examples
 - PTM 130nm
     - Folded Cascode Amplifier
     - Symmetric Amplifier
@@ -19,7 +19,7 @@ BAIcO considers devices models for 130nm and 65nm from (http://ptm.asu.edu/) wit
     - Folded Voltage-Combiners Biased Amplifier [2]
     - Ultra low Power OTA for biomedical applications [5]
 
-## References
+### References
 
 [1] R. Póvoa, A. Canelas, R. Martins, N. Horta, N. Lourenço, J. Goes,
 A new family of CMOS inverter-based OTAs for biomedical and healthcare applications,

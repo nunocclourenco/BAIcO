@@ -1,0 +1,31 @@
+.LIB tt            
+.PARAM           
+.include './65nm_NMOS.pm'
+.include './65nm_PMOS.pm'
+.ENDL tt    
+
+.LIB ff            
+.PARAM           
+.include './65nm_NMOS_ff.pm'
+.include './65nm_PMOS_ff.pm'
+.ENDL ff    
+
+.LIB ss            
+.PARAM           
+.include './65nm_NMOS_ss.pm'
+.include './65nm_PMOS_ss.pm'
+.ENDL ss    
+
+.LIB fnsp            
+.PARAM           
+.include './65nm_NMOS_ff.pm'
+.include './65nm_PMOS_ss.pm'
+.ENDL fnsp    
+
+.LIB snfp            
+.PARAM           
+.include './65nm_NMOS_ss.pm'
+.include './65nm_PMOS_ff.pm'
+.ENDL snfp    
+
+

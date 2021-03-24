@@ -1,0 +1,20 @@
+*********************************************************
+** Cell name: Single-Ended Folded Cascode
+** 
+.subckt folded_cascode_ota gnd ibias vdd vin vip vout
+mnm7 net11  net11   gnd     gnd     nmos33 w='_wn7/_nfn7' l='_ln7' m='1*_nfn7'
+mnm8 net15  net11   gnd     gnd     nmos33 w='_wn7/_nfn7' l='_ln7' m='1*_nfn7'
+mnm2 net14  net27   gnd     gnd     nmos33 w='_wn2/_nfn2' l='_ln1' m='1*_nfn2'
+mnm3 net0124 vip    net14 net14     nmos33 w='_wn3/_nfp3' l='_ln3' m='1*_nfp3'
+mnm4 net0128 vin    net14 net14     nmos33 w='_wn3/_nfn3' l='_ln3' m='1*_nfn3'
+mnm6 vout   net31   net15 net15     nmos33 w='_wn5/_nfn5' l='_ln5' m='1*_nfn5'
+mnm5 net31  net31   net11 net11     nmos33 w='_wn5/_nfn5' l='_ln5' m='1*_nfn5'
+mnm1 net27  net27   gnd     gnd     nmos33 w='_wn1/_nfn1' l='_ln1' m='1*_nfn1'
+mpm4 net0128 net56  vdd     vdd     pmos33 w='_wp3/_nfp3' l='_lp0' m='1*_nfp3'
+mpm3 net0124 net56  vdd     vdd     pmos33 w='_wp3/_nfp3' l='_lp0' m='1*_nfp3'
+mpm6 vout   net27   net0128 net0128 pmos33 w='_wp5/_nfp5' l='_lp1' m='1*_nfp5'
+mpm0 net56  net56   ibias ibias     pmos33 w='_wp0/_nfp0' l='_lp0' m='1*_nfp0'
+mpm5 net31  net27   net0124 net0124 pmos33 w='_wp5/_nfp5' l='_lp1' m='1*_nfp5'
+mpm1 net27  net27   net56   net56   pmos33 w='_wp1/_nfp1' l='_lp1' m='1*_nfp1'
+.ends
+*********************************************************

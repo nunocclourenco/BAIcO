@@ -1,0 +1,92 @@
+* Design Variables:
+* ----------------------------------------
+.PARAM
++ _IB=5.0000e-08
++ _LN0=1.2000e-07
++ _LN12=3.3500e-07
++ _LN2=9.0000e-08
++ _LN3=3.2000e-07
++ _LN50=1.1000e-07
++ _LN56=3.4500e-07
++ _LN60=3.5500e-07
++ _LP1=2.8000e-07
++ _LP3=3.6000e-07
++ _LP5=3.2500e-07
++ _NN0=1.2000e+01
++ _NN12=1.2000e+01
++ _NN2=4.0000e+00
++ _NN3=1.4000e+01
++ _NN50=1.8000e+01
++ _NN56=2.6000e+01
++ _NN60=2.8000e+01
++ _NP1=6.0000e+00
++ _NP3=1.0000e+01
++ _NP5=3.0000e+01
++ _WN0=5.0000e-07
++ _WN12=2.0400e-06
++ _WN2=2.2900e-06
++ _WN3=3.6200e-06
++ _WN50=5.0000e-07
++ _WN56=3.6900e-06
++ _WN60=3.4500e-06
++ _WP1=3.3500e-06
++ _WP3=4.6900e-06
++ _WP5=4.8600e-06
++ _ib=5.0000e-08
++ _ln0=1.2000e-07
++ _ln12=3.3500e-07
++ _ln2=9.0000e-08
++ _ln3=3.2000e-07
++ _ln50=1.1000e-07
++ _ln56=3.4500e-07
++ _ln60=3.5500e-07
++ _lp1=2.8000e-07
++ _lp3=3.6000e-07
++ _lp5=3.2500e-07
++ _nn0=1.2000e+01
++ _nn12=1.2000e+01
++ _nn2=4.0000e+00
++ _nn3=1.4000e+01
++ _nn50=1.8000e+01
++ _nn56=2.6000e+01
++ _nn60=2.8000e+01
++ _np1=6.0000e+00
++ _np3=1.0000e+01
++ _np5=3.0000e+01
++ _wn0=5.0000e-07
++ _wn12=2.0400e-06
++ _wn2=2.2900e-06
++ _wn3=3.6200e-06
++ _wn50=5.0000e-07
++ _wn56=3.6900e-06
++ _wn60=3.4500e-06
++ _wp1=3.3500e-06
++ _wp3=4.6900e-06
++ _wp5=4.8600e-06
+
+
+** Library name: gmcFilter
+** Cell name: gmcFilter_basic
+** View name: schematic
+.subckt AMP BIAS INN INP OUTN OUTP VDD VSS NET24 NET45 NET44 NET31 NET20 NET51 NET47 NET46 NET43 NET50 NET49 NET48
+mnm0 OUTP NET24 VSS VSS nch_lvt w='_wn0' l=_ln0 nf=1 m=1 
+mnm2 NET45 NET24 VSS VSS nch_lvt w='_wn2' l=_ln0 nf=1 m=1 
+mnm12 NET24 NET24 VSS VSS nch_lvt w='_wn12' l=_ln0 nf=1 m=1 
+mnm7 NET44 NET31 VSS VSS nch_lvt w='_wn2' l=_ln0 nf=1 m=1 
+mnm9 NET31 NET31 VSS VSS nch_lvt w='_wn12' l=_ln0 nf=1 m=1 
+mnm1 OUTN NET31 VSS VSS nch_lvt w='_wn0' l=_ln0 nf=1 m=1 
+mnm50 NET20 NET24 NET51 VSS nch_lvt w='_wn50' l=_ln50 nf=1 m=1 
+mnm56 NET51 NET24 NET47 VSS nch_lvt w='_wn56' l=_ln56 nf=1 m=1 
+mnm3 NET47 NET24 NET46 VSS nch_lvt w='_wn3' l=_ln3 nf=1 m=1 
+mnm60 NET46 NET24 NET45 VSS nch_lvt w='_wn60' l=_ln60 nf=1 m=1 
+mnm51 NET43 NET31 NET50 VSS nch_lvt w='_wn50' l=_ln50 nf=1 m=1 
+mnm57 NET50 NET31 NET49 VSS nch_lvt w='_wn56' l=_ln56 nf=1 m=1 
+mnm4 NET49 NET31 NET48 VSS nch_lvt w='_wn3' l=_ln3 nf=1 m=1 
+mnm61 NET48 NET31 NET44 VSS nch_lvt w='_wn60' l=_ln60 nf=1 m=1 
+mpm2 NET31 INN BIAS VDD pch_lvt w='_wp1' l=_lp1 nf=1 m=1 
+mpm1 NET24 INP BIAS VDD pch_lvt w='_wp1' l=_lp1 nf=1 m=1 
+mpm4 OUTN NET20 VDD VDD pch_lvt w='_wp5' l=_lp3 nf=1 m=1 
+mpm0 NET43 NET43 VDD VDD pch_lvt w='_wp3' l=_lp3 nf=1 m=1 
+mpm3 NET20 NET20 VDD VDD pch_lvt w='_wp3' l=_lp3 nf=1 m=1 
+mpm5 OUTP NET43 VDD VDD pch_lvt w='_wp5' l=_lp3 nf=1 m=1 
+.ends

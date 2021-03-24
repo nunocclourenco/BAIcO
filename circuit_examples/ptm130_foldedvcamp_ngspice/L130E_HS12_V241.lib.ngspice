@@ -1,0 +1,204 @@
+.LIB TT            
+.PARAM           
+*DEVICE 1           
++  DTOX_N_12_HSL130E        =   0.0000E+00        DVTH0_N_12_HSL130E       =   0.0000E+00                 
++  DU0_N_12_HSL130E         =   0.0000E+00        DVSAT_N_12_HSL130E       =   0.0000E+00                 
++  DWINT_N_12_HSL130E       =   0.0000E+00        DLINT_N_12_HSL130E       =   0.0000E+00                 
++  DRDSW_N_12_HSL130E       =   0.0000E+00        DCGSO_N_12_HSL130E       =   0.0000E+00                 
++  DCGDO_N_12_HSL130E       =   0.0000E+00        DCJ_N_12_HSL130E         =   0.0000E+00                 
++  DCJSW_N_12_HSL130E       =   0.0000E+00        DCJSWG_N_12_HSL130E      =   0.0000E+00                 
++  DPVSAT_N_12_HSL130E      =   0.0000E+00        DPU0_N_12_HSL130E        =   0.0000E+00                 
++  DLVTH0_N_12_HSL130E      =   0.0000E+00        DWU0_N_12_HSL130E        =   0.0000E+00         
++  DWVTH0_N_12_HSL130E      =   0.0000E+00        DPVTH0_N_12_HSL130E      =   0.0000E+00       
++  DPNFACTOR_N_12_HSL130E   =   0.0000E+00      
+      
+*DEVICE 2           
++  DTOX_P_12_HSL130E        =   0.0000E+00        DVTH0_P_12_HSL130E       =   0.0000E+00                 
++  DU0_P_12_HSL130E         =   0.0000E+00        DVSAT_P_12_HSL130E       =   0.0000E+00                 
++  DWINT_P_12_HSL130E       =   0.0000E+00        DLINT_P_12_HSL130E       =   0.0000E+00                 
++  DRDSW_P_12_HSL130E       =   0.0000E+00        DCGSO_P_12_HSL130E       =   0.0000E+00                 
++  DCGDO_P_12_HSL130E       =   0.0000E+00        DCJ_P_12_HSL130E         =   0.0000E+00                 
++  DCJSW_P_12_HSL130E       =   0.0000E+00        DCJSWG_P_12_HSL130E      =   0.0000E+00                 
++  DPVSAT_P_12_HSL130E      =   0.0000E+00        DLVTH0_P_12_HSL130E      =   0.0000E+00           
++  DWU0_P_12_HSL130E        =   0.0000E+00        DWVTH0_P_12_HSL130E      =   0.0000E+00        
++  DPVTH0_P_12_HSL130E      =   0.0000E+00        DPNFACTOR_P_12_HSL130E   =   0.0000E+00      
++  DLU0_P_12_HSL130E        =   0.0000E+00        DPU0_P_12_HSL130E        =   0.0000E+00    
+       
+.include './L130E_HS12_V241.mdl.ngspice'
+.lib './L130E_HS12_V241.lib.ngspice' IGATE
+.ENDL TT            
+           
+.LIB SS            
+.PARAM           
+*DEVICE 1           
++  DTOX_N_12_HSL130E        =   8.1900E-11        DVTH0_N_12_HSL130E       =   2.4000E-02
++  DU0_N_12_HSL130E         =  -8.0000E-05        DVSAT_N_12_HSL130E       =   0.0000E+00                 
++  DWINT_N_12_HSL130E       =   1.0000E-08        DLINT_N_12_HSL130E       =  -1.0000E-09                 
++  DRDSW_N_12_HSL130E       =   0.0000E+00        DCGSO_N_12_HSL130E       =  -2.9000E-11                 
++  DCGDO_N_12_HSL130E       =  -2.9000E-11        DCJ_N_12_HSL130E         =   7.2200E-05                 
++  DCJSW_N_12_HSL130E       =   9.9300E-12        DCJSWG_N_12_HSL130E      =   2.6600E-11                 
++  DPVSAT_N_12_HSL130E      =   0.0000E+00        DPU0_N_12_HSL130E        =  -5.0000E-17                 
++  DLVTH0_N_12_HSL130E      =   5.0000E-09        DWU0_N_12_HSL130E        =  -6.5000E-10         
++  DWVTH0_N_12_HSL130E      =   5.0000E-10        DPVTH0_N_12_HSL130E      =   3.0000E-17       
++  DPNFACTOR_N_12_HSL130E   =   0.0000E+00      
+      
+*DEVICE 2           
++  DTOX_P_12_HSL130E        =   8.5800E-11        DVTH0_P_12_HSL130E       =  -2.0200E-02                 
++  DU0_P_12_HSL130E         =  -2.4500E-04        DVSAT_P_12_HSL130E       =   0.0000E+00                 
++  DWINT_P_12_HSL130E       =   2.0000E-09        DLINT_P_12_HSL130E       =  -2.5000E-09                 
++  DRDSW_P_12_HSL130E       =   0.0000E+00        DCGSO_P_12_HSL130E       =  -3.1000E-11                 
++  DCGDO_P_12_HSL130E       =  -3.1000E-11        DCJ_P_12_HSL130E         =   9.5300E-05                 
++  DCJSW_P_12_HSL130E       =   1.0500E-11        DCJSWG_P_12_HSL130E      =   4.4600E-11                 
++  DPVSAT_P_12_HSL130E      =   0.0000E+00        DLVTH0_P_12_HSL130E      =  -3.8000E-09           
++  DWU0_P_12_HSL130E        =   0.0000E+00        DWVTH0_P_12_HSL130E      =  -7.0000E-10        
++  DPVTH0_P_12_HSL130E      =   0.0000E+00        DPNFACTOR_P_12_HSL130E   =   0.0000E+00      
++  DLU0_P_12_HSL130E        =   0.0000E+00        DPU0_P_12_HSL130E        =   0.0000E+00    
+       
+.include './L130E_HS12_V241.mdl.ngspice'
+.lib './L130E_HS12_V241.lib.ngspice' IGATE           
+.ENDL SS            
+           
+.LIB FF            
+.PARAM           
+*DEVICE 1           
++  DTOX_N_12_HSL130E        =  -8.1900E-11        DVTH0_N_12_HSL130E       =  -2.1500E-02                 
++  DU0_N_12_HSL130E         =   4.0000E-05        DVSAT_N_12_HSL130E       =   0.0000E+00                 
++  DWINT_N_12_HSL130E       =  -1.0000E-08        DLINT_N_12_HSL130E       =   5.0000E-10                 
++  DRDSW_N_12_HSL130E       =  -4.1000E+01        DCGSO_N_12_HSL130E       =   2.9000E-11                 
++  DCGDO_N_12_HSL130E       =   2.9000E-11        DCJ_N_12_HSL130E         =  -7.2200E-05                 
++  DCJSW_N_12_HSL130E       =  -9.9300E-12        DCJSWG_N_12_HSL130E      =  -2.6600E-11                 
++  DPVSAT_N_12_HSL130E      =   0.0000E+00        DPU0_N_12_HSL130E        =   0.0000E+00                 
++  DLVTH0_N_12_HSL130E      =  -1.7000E-09        DWU0_N_12_HSL130E        =   3.5000E-10         
++  DWVTH0_N_12_HSL130E      =  -1.0000E-09        DPVTH0_N_12_HSL130E      =  -5.0000E-17       
++  DPNFACTOR_N_12_HSL130E   =   0.0000E+00      
+      
+*DEVICE 2           
++  DTOX_P_12_HSL130E        =  -8.5800E-11        DVTH0_P_12_HSL130E       =   2.0780E-02                 
++  DU0_P_12_HSL130E         =   7.5000E-05        DVSAT_P_12_HSL130E       =   0.0000E+00                 
++  DWINT_P_12_HSL130E       =  -1.0000E-09        DLINT_P_12_HSL130E       =   2.7000E-09                 
++  DRDSW_P_12_HSL130E       =   0.0000E+00        DCGSO_P_12_HSL130E       =   3.1000E-11                 
++  DCGDO_P_12_HSL130E       =   3.1000E-11        DCJ_P_12_HSL130E         =  -9.5300E-05                 
++  DCJSW_P_12_HSL130E       =  -1.0500E-11        DCJSWG_P_12_HSL130E      =  -4.4600E-11                
++  DPVSAT_P_12_HSL130E      =   0.0000E+00        DLVTH0_P_12_HSL130E      =   1.9000E-09           
++  DWU0_P_12_HSL130E        =   0.0000E+00        DWVTH0_P_12_HSL130E      =   7.0000E-10        
++  DPVTH0_P_12_HSL130E      =   8.0000E-17        DPNFACTOR_P_12_HSL130E   =   0.0000E+00      
++  DLU0_P_12_HSL130E        =   0.0000E+00        DPU0_P_12_HSL130E        =   1.0000E-18    
+        
+.include './L130E_HS12_V241.mdl.ngspice'
+.lib './L130E_HS12_V241.lib.ngspice' IGATE           
+.ENDL FF            
+           
+.LIB SNFP            
+.PARAM           
+*DEVICE 1           
++  DTOX_N_12_HSL130E        =   0.0000E+00        DVTH0_N_12_HSL130E       =   1.7000E-02                 
++  DU0_N_12_HSL130E         =  -1.5000E-04        DVSAT_N_12_HSL130E       =   0.0000E+00                 
++  DWINT_N_12_HSL130E       =   8.0000E-09        DLINT_N_12_HSL130E       =  -3.0000E-10                 
++  DRDSW_N_12_HSL130E       =   0.0000E+00        DCGSO_N_12_HSL130E       =   0.0000E+00                 
++  DCGDO_N_12_HSL130E       =   0.0000E+00        DCJ_N_12_HSL130E         =   7.2200E-05                 
++  DCJSW_N_12_HSL130E       =   9.9300E-12        DCJSWG_N_12_HSL130E      =   2.6600E-11                 
++  DPVSAT_N_12_HSL130E      =   0.0000E+00        DPU0_N_12_HSL130E        =   0.0000E+00                
++  DLVTH0_N_12_HSL130E      =   3.4000E-09        DWU0_N_12_HSL130E        =  -1.5000E-10         
++  DWVTH0_N_12_HSL130E      =   1.0000E-10        DPVTH0_N_12_HSL130E      =   0.0000E+00       
++  DPNFACTOR_N_12_HSL130E   =   0.0000E+00            
+      
+*DEVICE 2           
++  DTOX_P_12_HSL130E        =   0.0000E+00        DVTH0_P_12_HSL130E       =   1.6000E-02                 
++  DU0_P_12_HSL130E         =   2.0500E-04        DVSAT_P_12_HSL130E       =   0.0000E+00                 
++  DWINT_P_12_HSL130E       =  -9.0000E-10        DLINT_P_12_HSL130E       =   2.0000E-09                 
++  DRDSW_P_12_HSL130E       =   0.0000E+00        DCGSO_P_12_HSL130E       =   0.0000E+00                 
++  DCGDO_P_12_HSL130E       =   0.0000E+00        DCJ_P_12_HSL130E         =  -9.5300E-05                 
++  DCJSW_P_12_HSL130E       =  -1.0500E-11        DCJSWG_P_12_HSL130E      =  -4.4600E-11                 
++  DPVSAT_P_12_HSL130E      =   0.0000E+00        DLVTH0_P_12_HSL130E      =   0.0000E+00           
++  DWU0_P_12_HSL130E        =   0.0000E+00        DWVTH0_P_12_HSL130E      =   5.0000E-10        
++  DPVTH0_P_12_HSL130E      =   8.0000E-17        DPNFACTOR_P_12_HSL130E   =   0.0000E+00      
++  DLU0_P_12_HSL130E        =   0.0000E+00        DPU0_P_12_HSL130E        =   1.0000E-18   
+       
+.include './L130E_HS12_V241.mdl.ngspice'
+.lib './L130E_HS12_V241.lib.ngspice' IGATE           
+.ENDL SNFP            
+           
+.LIB FNSP            
+.PARAM           
+*DEVICE 1           
++  DTOX_N_12_HSL130E        =   0.0000E+00        DVTH0_N_12_HSL130E       =  -1.7000E-02                 
++  DU0_N_12_HSL130E         =   1.5000E-04        DVSAT_N_12_HSL130E       =   0.0000E+00                 
++  DWINT_N_12_HSL130E       =  -8.0000E-09        DLINT_N_12_HSL130E       =   3.0000E-10                 
++  DRDSW_N_12_HSL130E       =  -3.9000E+01        DCGSO_N_12_HSL130E       =   0.0000E+00                 
++  DCGDO_N_12_HSL130E       =   0.0000E+00        DCJ_N_12_HSL130E         =  -7.2200E-05                 
++  DCJSW_N_12_HSL130E       =  -9.9300E-12        DCJSWG_N_12_HSL130E      =  -2.6600E-11                 
++  DPVSAT_N_12_HSL130E      =   0.0000E+00        DPU0_N_12_HSL130E        =   0.0000E+00                 
++  DLVTH0_N_12_HSL130E      =   0.0000E+00        DWU0_N_12_HSL130E        =   4.0000E-11         
++  DWVTH0_N_12_HSL130E      =  -6.0000E-10        DPVTH0_N_12_HSL130E      =   0.0000E+00       
++  DPNFACTOR_N_12_HSL130E   =   0.0000E+00      
+      
+*DEVICE 2           
++  DTOX_P_12_HSL130E        =   0.0000E+00        DVTH0_P_12_HSL130E       =  -1.6000E-02                 
++  DU0_P_12_HSL130E         =  -2.1000E-04        DVSAT_P_12_HSL130E       =   0.0000E+00                 
++  DWINT_P_12_HSL130E       =   2.0000E-09        DLINT_P_12_HSL130E       =  -8.0000E-10                 
++  DRDSW_P_12_HSL130E       =   0.0000E+00        DCGSO_P_12_HSL130E       =   0.0000E+00                 
++  DCGDO_P_12_HSL130E       =   0.0000E+00        DCJ_P_12_HSL130E         =   9.5300E-05                 
++  DCJSW_P_12_HSL130E       =   1.0500E-11        DCJSWG_P_12_HSL130E      =   4.4600E-11                 
++  DPVSAT_P_12_HSL130E      =   0.0000E+00        DLVTH0_P_12_HSL130E      =  -2.3000E-09           
++  DWU0_P_12_HSL130E        =   0.0000E+00        DWVTH0_P_12_HSL130E      =  -3.0000E-10          
++  DPVTH0_P_12_HSL130E      =   0.0000E+00        DPNFACTOR_P_12_HSL130E   =   0.0000E+00      
++  DLU0_P_12_HSL130E        =   0.0000E+00        DPU0_P_12_HSL130E        =   0.0000E+00    
+     
+.include './L130E_HS12_V241.mdl.ngspice'
+.lib './L130E_HS12_V241.lib.ngspice' IGATE           
+.ENDL FNSP            
+
+.LIB IGATE
+.SUBCKT N_12_HSL130E_IG n11 n2 n33 n4 w=1u l=1u 
+.param m=1 nrd='hdif/w' nrs='hdif/w'
+.param ad='2*hdif*w' as='2*hdif*w' pd='2*(2*hdif+w)' ps='2*(2*hdif+w)' dtemp=0
+*
+.param rsh='7'
+.param hdif='1.25E-07'
+.param tcig='1+5.55e-3*(temper+dtemp-25)'
+.param area='w*l*m*1e4*tcig'
+.param toxg='(2.73E-09+DTOX_N_12_HSL130E)*1e2'
+.param vdf0='3.05' vdfl='-0.3e-08' vdfw='3.5e-09'
+.param vaf0='0.73' vafl='-0.8e-10' vafw='1.0e-10'
+.param vdr0='4.28' vdrl='-1.3e-07' vdrw='5.0e-09'
+.param var0='1.70' varl='-1.3e-07' varw='1.0e-10' 
+.param vdf= '(vdf0+vdfl/l+vdfw/w)*2.6e7*toxg'
+.param vaf= '(vaf0+vafl/l+vafw/w)*2.6e7*toxg'
+.param vdr= '(vdr0+vdrl/l+vdrw/w)*2.6e7*toxg'
+.param var= '(var0+varl/l+varw/w)*2.6e7*toxg'
+.param igf= '2.1e-7*Area*exp(-vdf)*pwr(1/toxg,2.0)'
+.param igr= '2.1e-7*Area*exp(-vdr)*pwr(1/toxg,2.0)'
+MNig n1 n2 n3 n4 N_12_HSL130E w=w l=l m=m nrd=nrd nrs=nrs ad=ad as=as pd=pd ps=ps dtemp=dtemp 
+Gigcd n2 n1 cur='igf*pwr((abs(v(n2,n1))+v(n2,n1))/2,vaf)-igr*pwr((abs(v(n2,n1))-v(n2,n1))/2,var)'
+Gigcs n2 n3 cur='igf*pwr((abs(v(n2,n3))+v(n2,n3))/2,vaf)-igr*pwr((abs(v(n2,n3))-v(n2,n3))/2,var)'
+Rdn n1 n11 value='rsh*nrd/m'
+Rsn n3 n33 value='rsh*nrs/m'
+.ENDS
+*
+.SUBCKT P_12_HSL130E_IG p11 p2 p33 p4 w=1u l=1u 
+.param m=1 nrd='hdif/w' nrs='hdif/w'
+.param ad='2*hdif*w' as='2*hdif*w' pd='2*(2*hdif+w)' ps='2*(2*hdif+w)' dtemp=0
+*
+.param rsh='7'
+.param hdif='1.25E-07'
+.param tcig='1+4.25e-3*(temper+dtemp-25)'
+.param area='w*l*m*1e4*tcig'
+.param toxg='(2.86E-09+DTOX_P_12_HSL130E)*1e2'
+.param vdf0='3.19' vdfl='-0.7e-08' vdfw='4.5e-09'
+.param vaf0='0.57' vafl='-0.7e-08' vafw='1.0e-10'
+.param vdr0='4.35' vdrl='-1.40e-07' vdrw='5.0e-09'
+.param var0='1.86' varl='-1.69e-07' varw='1.0e-10' 
+.param vdf= '(vdf0+vdfl/l+vdfw/w)*2.6e7*toxg'
+.param vaf= '(vaf0+vafl/l+vafw/w)*2.6e7*toxg'
+.param vdr= '(vdr0+vdrl/l+vdrw/w)*2.6e7*toxg'
+.param var= '(var0+varl/l+varw/w)*2.6e7*toxg'
+.param igf= '2.1e-7*Area*exp(-vdf)*pwr(1/toxg,2.0)'
+.param igr= '2.1e-7*Area*exp(-vdr)*pwr(1/toxg,2.0)'
+MPig p1 p2 p3 p4 P_12_HSL130E w=w l=l m=m nrd=nrd nrs=nrs ad=ad as=as pd=pd ps=ps dtemp=dtemp
+Gigcd p2 p1 cur='-igf*pwr((abs(v(p2,p1))-v(p2,p1))/2,vaf)+igr*pwr((abs(v(p2,p1))+v(p2,p1))/2,var)'
+Gigcs p2 p3 cur='-igf*pwr((abs(v(p2,p3))-v(p2,p3))/2,vaf)+igr*pwr((abs(v(p2,p3))+v(p2,p3))/2,var)'
+Rdp p1 p11 value='rsh*nrd/m'
+Rsp p3 p33 value='rsh*nrs/m'
+.ENDS
+*
+.ENDL IGATE

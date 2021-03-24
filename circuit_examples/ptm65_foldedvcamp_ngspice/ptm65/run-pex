@@ -1,0 +1,14 @@
+#!/bin/sh
+
+
+rm -rf svdb 
+rm -rf cir.pex
+rm -rf cir.pex.pex
+rm -rf cir.pex.VCO.pxi
+rm -rf ex_cir.cir
+
+calibre -lvs -hier -spice ./svdb/ex_layout.sp -nowait ./pex-setup.cal
+calibre -xrc -pdb -rcc -turbo 1 -nowait ./pex-setup.cal
+calibre -xrc -fmt -all -nowait ./pex-setup.cal
+
+aida-ams-converter -i cir.pex -a ex_add.inc -o ex_cir.cir

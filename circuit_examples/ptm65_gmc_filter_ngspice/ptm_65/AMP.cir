@@ -1,0 +1,35 @@
+** Library name: gmcFilter
+** Cell name: gmcFilter_basic
+** View name: schematic
+.subckt AMP bias inn inp outn outp vdd vss
+xmnm0 outp net24 vss vss nch_lvt w='_wn0*_nn0' l=_ln0 nf=_nn0 m=1 
+xmnm1 outn net31 vss vss nch_lvt w='_wn0*_nn0' l=_ln0 nf=_nn0 m=1 
+
+xmnm2 net45 net24 vss vss nch_lvt w='_wn2*_nn2' l=_ln2 nf=_nn2 m=1 
+xmnm7 net44 net31 vss vss nch_lvt w='_wn2*_nn2' l=_ln2 nf=_nn2 m=1
+
+xmnm12 net24 net24 vss vss nch_lvt w='_wn12*_nn12' l=_ln12 nf=_nn12 m=1 
+xmnm9 net31 net31 vss vss nch_lvt w='_wn12*_nn12' l=_ln12 nf=_nn12 m=1 
+
+xmnm50 net20 net24 net51 vss nch_lvt w='_wn50*_nn50' l=_ln50 nf=_nn50 m=1
+xmnm51 net43 net31 net50 vss nch_lvt w='_wn50*_nn50' l=_ln50 nf=_nn50 m=1
+ 
+xmnm56 net51 net24 net47 vss nch_lvt w='_wn56*_nn56' l=_ln56 nf=_nn56 m=1
+xmnm57 net50 net31 net49 vss nch_lvt w='_wn56*_nn56' l=_ln56 nf=_nn56 m=1 
+
+xmnm3 net47 net24 net46 vss nch_lvt w='_wn3*_nn3' l=_ln3 nf=_nn3 m=1 
+xmnm4 net49 net31 net48 vss nch_lvt w='_wn3*_nn3' l=_ln3 nf=_nn3 m=1 
+
+xmnm60 net46 net24 net45 vss nch_lvt w='_wn60*_nn60' l=_ln60 nf=_nn60 m=1 
+xmnm61 net48 net31 net44 vss nch_lvt w='_wn60*_nn60' l=_ln60 nf=_nn60 m=1
+
+xmpm2 net31 inn bias bias pch_lvt w='_wp1*_np1' l=_lp1 nf=_np1 m=1 
+xmpm1 net24 inp bias bias pch_lvt w='_wp1*_np1' l=_lp1 nf=_np1 m=1 
+
+xmpm5 outp net43 vdd vdd pch_lvt w='_wp5*_np5' l=_lp5 nf=_np5 m=1
+xmpm4 outn net20 vdd vdd pch_lvt w='_wp5*_np5' l=_lp5 nf=_np5 m=1
+ 
+xmpm3 net20 net20 vdd vdd pch_lvt w='_wp3*_np3' l=_lp3 nf=_np3 m=1 
+xmpm0 net43 net43 vdd vdd pch_lvt w='_wp3*_np3' l=_lp3 nf=_np3 m=1 
+
+.ends

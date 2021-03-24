@@ -1,0 +1,125 @@
+.LIB "$PDK_DIR/tsmc_n65_gp/models/eldo/crn65gplus_2d5_lk_v1d0.eldo" TT_LVT
+
+.OPTION TUNING=FAST
+.OPTION AEX
+
+.GLOBAL
+.PARAM vdd=1.2 vcm=0.6 c1=0.000000000006
+
+*********** Unit Under Test ********************
+** Library name: amplificadores
+** Cell name: nova_diff
+** View name: schematic
+.subckt _sub2 cmfb gnd vbiasn vbiasp vdd vin vip von vop
+
+mpm0 vop net11 vdd vdd pch_lvt w='_wp0*_nfp0' l=_lp0 m=1 nf=_nfp0
+mpm3 von net41 vdd vdd pch_lvt w='_wp0*_nfp0' l=_lp0 m=1 nf=_nfp0
+mpm1 net11 net11 vdd vdd pch_lvt w='_wp1*_nfp1' l=_lp1 m=1 nf=_nfp1
+mpm2 net41 net41 vdd vdd pch_lvt w='_wp1*_nfp1' l=_lp1 m=1 nf=_nfp1
+mpm5 vp vin net26 vdd pch_lvt w='_wp5*_nfp5' l=_lp5 m=1 nf=_nfp5
+mpm6 vn vip net26 vdd pch_lvt w='_wp5*_nfp5' l=_lp5 m=1 nf=_nfp5
+mpm4 net26 vbiasp vdd vdd pch_lvt w='_wp4*_nfp4' l=_lp4 m=1 nf=_nfp4
+        
+mnm0 net11 vip vn gnd nch_lvt l=_ln0 w='_wn0*_nfn0' m=1 nf=_nfn0
+mnm1 net41 vin vp gnd nch_lvt l=_ln0 w='_wn0*_nfn0' m=1 nf=_nfn0
+mnm5 von cmfb gnd gnd nch_lvt l=_ln4 w='_wn4*_nfn4' m=1 nf=_nfn4
+mnm4 voP cmfb gnd gnd nch_lvt l=_ln4 w='_wn4*_nfn4' m=1 nf=_nfn4
+mnm9 vn vbiasn gnd gnd nch_lvt l=_ln8 w='_wn8*_nfn8' m=1 nf=_nfn8
+mnm8 vp vbiasn gnd gnd nch_lvt l=_ln8 w='_wn8*_nfn8' m=1 nf=_nfn8
+mnm7 vdd vin vn gnd nch_lvt l=_ln6 w='_wn6*_nfn6' m=1 nf=_nfn6
+mnm6 vdd vip vp gnd nch_lvt l=_ln6 w='_wn6*_nfn6' m=1 nf=_nfn6
+
+.ends
+************************************************
+
+
+*********** Test-bench *************************
+** Library name: amplificadores
+** Cell name: nova_diff_OLtb
+** View name: schematic
+mpmbiasp bias_p bias_p vddnet vddnet pch_lvt w='_wpmbiasp*1' l=_lpmbiasp m=1 nf=1
+mnmbiasn bias_n bias_n 0 0 nch_lvt w='_wnmbiasn*1' l=_lnmbiasn m=1 nf=1
+mnmbiasp bias_p bias_n 0 0 nch_lvt w='_wnmbiasp*1' l=_lnmbiasp m=1 nf=1
+mnmvbias vbias vbias 0 0 nch_lvt w='_wn4*1' l=_ln4 m=1 nf=1
+xi16 cmfb 0 bias_n bias_p vddnet in_n in_p outputn outputp _sub2
+vin_p in_p 0 DC=vcm AC 1
+vdc vddnet 0 DC=vdd
+vin_n in_n 0 DC=vcm
+r0 cmfb 0 1
+cload3 output 0 c1
+cload1 outputn 0 c1
+cload2 outputp 0 c1
+ibiasn vddnet bias_n DC=100e-6
+i0 cmfb 0 DC=600e-3
+iext vddnet vbias DC=100e-6
+g2 cmfb 0 VCCS vbias 0 -1
+g1 cmfb 0 VCCS outputn 0 -500m
+g0 cmfb 0 VCCS outputp 0 -500m
+e0 output 0 VCVS outputp outputn 1
+************************************************
+
+
+*********** Analysis ***************************
+.TEMP 25.0
+.AC DEC 20 1 10G SWEEP DATA = PIPEdata
+*.AC DEC 100 1 10G
+.OPTION BRIEF=0
+************************************************
+
+
+*********** Performance Measures ***************
+.EXTRACT DCAC label=IDD   ((-i(vdc))-(100u)-((100u)+(lx4(mnmbiasp))))
+.EXTRACT AC   label=GDC   YVAL(VDB(OUTPUT),1)
+.EXTRACT AC   label=GBW   XDOWN(VDB(OUTPUT),0,start,end)
+.EXTRACT AC   label=PM    180+MIN(VP(OUTPUT),start,Extract(GBW))
+.EXTRACT AC   label=FOM   (((GBW/1000000)*6)/(IDD*1000))
+************************************************
+
+
+*********** OVERDRIVES *************************
+.MEASURE AC vov_mnmvbias    = param('(VGS(mnmvbias)-lv9(mnmvbias))')
+.MEASURE AC vov_mnmbiasn    = param('(VGS(mnmbiasn)-lv9(mnmbiasn))')
+.MEASURE AC vov_mnmbiasp    = param('(VGS(mnmbiasp)-lv9(mnmbiasp))')
+.MEASURE AC vov_mpmbiasp    = param('(lv9(mpmbiasp)-VGS(mpmbiasp))')
+.MEASURE AC vov_mpm6    = param('(lv9(xi16.mpm6)-VGS(xi16.mpm6))')
+.MEASURE AC vov_mpm5    = param('(lv9(xi16.mpm5)-VGS(xi16.mpm5))')
+.MEASURE AC vov_mpm4    = param('(lv9(xi16.mpm4)-VGS(xi16.mpm4))')
+.MEASURE AC vov_mpm3    = param('(lv9(xi16.mpm3)-VGS(xi16.mpm3))')
+.MEASURE AC vov_mpm2    = param('(lv9(xi16.mpm2)-VGS(xi16.mpm2))')
+.MEASURE AC vov_mpm1    = param('(lv9(xi16.mpm1)-VGS(xi16.mpm1))')
+.MEASURE AC vov_mpm0    = param('(lv9(xi16.mpm0)-VGS(xi16.mpm0))')
+.MEASURE AC vov_mnm9    = param('(VGS(xi16.mnm9)-lv9(xi16.mnm9))')
+.MEASURE AC vov_mnm8    = param('(VGS(xi16.mnm8)-lv9(xi16.mnm8))')
+.MEASURE AC vov_mnm7    = param('(VGS(xi16.mnm7)-lv9(xi16.mnm7))')
+.MEASURE AC vov_mnm6    = param('(VGS(xi16.mnm6)-lv9(xi16.mnm6))')
+.MEASURE AC vov_mnm5    = param('(VGS(xi16.mnm5)-lv9(xi16.mnm5))')
+.MEASURE AC vov_mnm4    = param('(VGS(xi16.mnm4)-lv9(xi16.mnm4))')
+.MEASURE AC vov_mnm1    = param('(VGS(xi16.mnm1)-lv9(xi16.mnm1))')
+.MEASURE AC vov_mnm0    = param('(VGS(xi16.mnm0)-lv9(xi16.mnm0))')
+*************************************************
+
+
+*********** MARGINS *****************************
+.MEASURE AC delta_mnmvbias    = param('(VDS(mnmvbias)-VDSAT(mnmvbias))')
+.MEASURE AC delta_mnmbiasn    = param('(VDS(mnmbiasn)-VDSAT(mnmbiasn))')
+.MEASURE AC delta_mnmbiasp    = param('(VDS(mnmbiasp)-VDSAT(mnmbiasp))')
+.MEASURE AC delta_mpmbiasp    = param('(VDSAT(mpmbiasp)-VDS(mpmbiasp))')
+.MEASURE AC delta_mpm6    = param('(VDSAT(xi16.mpm6)-VDS(xi16.mpm6))')
+.MEASURE AC delta_mpm5    = param('(VDSAT(xi16.mpm5)-VDS(xi16.mpm5))')
+.MEASURE AC delta_mpm4    = param('(VDSAT(xi16.mpm4)-VDS(xi16.mpm4))')
+.MEASURE AC delta_mpm3    = param('(VDSAT(xi16.mpm3)-VDS(xi16.mpm3))')
+.MEASURE AC delta_mpm2    = param('(VDSAT(xi16.mpm2)-VDS(xi16.mpm2))')
+.MEASURE AC delta_mpm1    = param('(VDSAT(xi16.mpm1)-VDS(xi16.mpm1))')
+.MEASURE AC delta_mpm0    = param('(VDSAT(xi16.mpm1)-VDS(xi16.mpm0))')
+.MEASURE AC delta_mnm9    = param('(VDS(xi16.mnm9)-VDSAT(xi16.mnm9))')
+.MEASURE AC delta_mnm8    = param('(VDS(xi16.mnm8)-VDSAT(xi16.mnm8))')
+.MEASURE AC delta_mnm7    = param('(VDS(xi16.mnm7)-VDSAT(xi16.mnm7))')
+.MEASURE AC delta_mnm6    = param('(VDS(xi16.mnm6)-VDSAT(xi16.mnm6))')
+.MEASURE AC delta_mnm5    = param('(VDS(xi16.mnm5)-VDSAT(xi16.mnm5))')
+.MEASURE AC delta_mnm4    = param('(VDS(xi16.mnm4)-VDSAT(xi16.mnm4))')
+.MEASURE AC delta_mnm1    = param('(VDS(xi16.mnm1)-VDSAT(xi16.mnm1))')
+.MEASURE AC delta_mnm0    = param('(VDS(xi16.mnm0)-VDSAT(xi16.mnm0))')
+************************************************
+
+
+.END

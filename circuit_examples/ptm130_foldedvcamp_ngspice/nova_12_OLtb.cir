@@ -1,0 +1,191 @@
+** Generated for: Eldo
+** Generated on: Feb 19 15:16:53 2013
+** Design library name: amplificadores
+** Design cell name: nova_OLtb
+** Design view name: schematic
+
+.OPTION TUNING=FAST
+.OPTION AEX
+
+.INC "umc130.lib"
+
+.GLOBAL
+
+.PARAM
++vcm=0.6
++c1=0.000000000006
+
+
+.include 'design_var.inc'
+.include 'noise-subCir.cir'
+
+** Library name: amplificadores
+** Cell name: nova_1.2_OLtb
+** View name: schematic
+mpmbiasp bias_p bias_p vddnet vddnet P_12_HSL130E w='_wpmbiasp/_nfpmbiasp' l=_lpmbiasp as='_wpmbiasp/_nfpmbiasp<280e-9?(((78.4e-15+100e-9*(_wpmbiasp/_nfpmbiasp))+int((_nfpmbiasp-1)/2.0)*(78.4e-15+200e-9*(_wpmbiasp/_nfpmbiasp)))+(_nfpmbiasp/2-int(_nfpmbiasp/2)==0?78.4e-15+100e-9*(_wpmbiasp/_nfpmbiasp):0))/_nfpmbiasp:(((_wpmbiasp/_nfpmbiasp)*340e-9+int((_nfpmbiasp-1)/2.0)*((_wpmbiasp/_nfpmbiasp)*400e-9))+(_nfpmbiasp/2-int(_nfpmbiasp/2)==0?(_wpmbiasp/_nfpmbiasp)*340e-9:0))/_nfpmbiasp' ad='_wpmbiasp/_nfpmbiasp<280e-9?(int(_nfpmbiasp/2.0)*(78.4e-15+200e-9*(_wpmbiasp/_nfpmbiasp))+(_nfpmbiasp/2-int(_nfpmbiasp/2)!=0?78.4e-15+100e-9*(_wpmbiasp/_nfpmbiasp):0))/_nfpmbiasp:(int(_nfpmbiasp/2.0)*((_wpmbiasp/_nfpmbiasp)*400e-9)+(_nfpmbiasp/2-int(_nfpmbiasp/2)!=0?(_wpmbiasp/_nfpmbiasp)*340e-9:0))/_nfpmbiasp'
++ps='_wpmbiasp/_nfpmbiasp<280e-9?((1.32e-6+int((_nfpmbiasp-1)/2.0)*1.52e-6)+(_nfpmbiasp/2-int(_nfpmbiasp/2)==0?1.32e-6:0))/_nfpmbiasp:((2*(_wpmbiasp/_nfpmbiasp+340e-9)+int((_nfpmbiasp-1)/2.0)*(2*(_wpmbiasp/_nfpmbiasp+400e-9)))+(_nfpmbiasp/2-int(_nfpmbiasp/2)==0?2*(_wpmbiasp/_nfpmbiasp+340e-9):0))/_nfpmbiasp' pd='_wpmbiasp/_nfpmbiasp<280e-9?(int(_nfpmbiasp/2.0)*1.52e-6+(_nfpmbiasp/2-int(_nfpmbiasp/2)!=0?1.32e-6:0))/_nfpmbiasp:(int(_nfpmbiasp/2.0)*(2*(_wpmbiasp/_nfpmbiasp+400e-9))+(_nfpmbiasp/2-int(_nfpmbiasp/2)!=0?2*(_wpmbiasp/_nfpmbiasp+340e-9):0))/_nfpmbiasp' m='1*_nfpmbiasp'
+mnmbiasp bias_p bias_n 0 0 N_12_HSL130E w='_wnmbiasp/_nfnmbiasp' l=_lnmbiasp as='_wnmbiasp/_nfnmbiasp<280e-9?(((78.4e-15+100e-9*(_wnmbiasp/_nfnmbiasp))+int((_nfnmbiasp-1)/2.0)*(78.4e-15+200e-9*(_wnmbiasp/_nfnmbiasp)))+(_nfnmbiasp/2-int(_nfnmbiasp/2)==0?78.4e-15+100e-9*(_wnmbiasp/_nfnmbiasp):0))/_nfnmbiasp:(((_wnmbiasp/_nfnmbiasp)*340e-9+int((_nfnmbiasp-1)/2.0)*((_wnmbiasp/_nfnmbiasp)*400e-9))+(_nfnmbiasp/2-int(_nfnmbiasp/2)==0?(_wnmbiasp/_nfnmbiasp)*340e-9:0))/_nfnmbiasp' ad='_wnmbiasp/_nfnmbiasp<280e-9?(int(_nfnmbiasp/2.0)*(78.4e-15+200e-9*(_wnmbiasp/_nfnmbiasp))+(_nfnmbiasp/2-int(_nfnmbiasp/2)!=0?78.4e-15+100e-9*(_wnmbiasp/_nfnmbiasp):0))/_nfnmbiasp:(int(_nfnmbiasp/2.0)*((_wnmbiasp/_nfnmbiasp)*400e-9)+(_nfnmbiasp/2-int(_nfnmbiasp/2)!=0?(_wnmbiasp/_nfnmbiasp)*340e-9:0))/_nfnmbiasp'
++ps='_wnmbiasp/_nfnmbiasp<280e-9?((1.32e-6+int((_nfnmbiasp-1)/2.0)*1.52e-6)+(_nfnmbiasp/2-int(_nfnmbiasp/2)==0?1.32e-6:0))/_nfnmbiasp:((2*(_wnmbiasp/_nfnmbiasp+340e-9)+int((_nfnmbiasp-1)/2.0)*(2*(_wnmbiasp/_nfnmbiasp+400e-9)))+(_nfnmbiasp/2-int(_nfnmbiasp/2)==0?2*(_wnmbiasp/_nfnmbiasp+340e-9):0))/_nfnmbiasp' pd='_wnmbiasp/_nfnmbiasp<280e-9?(int(_nfnmbiasp/2.0)*1.52e-6+(_nfnmbiasp/2-int(_nfnmbiasp/2)!=0?1.32e-6:0))/_nfnmbiasp:(int(_nfnmbiasp/2.0)*(2*(_wnmbiasp/_nfnmbiasp+400e-9))+(_nfnmbiasp/2-int(_nfnmbiasp/2)!=0?2*(_wnmbiasp/_nfnmbiasp+340e-9):0))/_nfnmbiasp' m='1*_nfnmbiasp'
+mnmbiasn bias_n bias_n 0 0 N_12_HSL130E w='_wnmbiasn/_nfnmbiasn' l=_lnmbiasn as='_wnmbiasn/_nfnmbiasn<280e-9?(((78.4e-15+100e-9*(_wnmbiasn/_nfnmbiasn))+int((_nfnmbiasn-1)/2.0)*(78.4e-15+200e-9*(_wnmbiasn/_nfnmbiasn)))+(_nfnmbiasn/2-int(_nfnmbiasn/2)==0?78.4e-15+100e-9*(_wnmbiasn/_nfnmbiasn):0))/_nfnmbiasn:(((_wnmbiasn/_nfnmbiasn)*340e-9+int((_nfnmbiasn-1)/2.0)*((_wnmbiasn/_nfnmbiasn)*400e-9))+(_nfnmbiasn/2-int(_nfnmbiasn/2)==0?(_wnmbiasn/_nfnmbiasn)*340e-9:0))/_nfnmbiasn' ad='_wnmbiasn/_nfnmbiasn<280e-9?(int(_nfnmbiasn/2.0)*(78.4e-15+200e-9*(_wnmbiasn/_nfnmbiasn))+(_nfnmbiasn/2-int(_nfnmbiasn/2)!=0?78.4e-15+100e-9*(_wnmbiasn/_nfnmbiasn):0))/_nfnmbiasn:(int(_nfnmbiasn/2.0)*((_wnmbiasn/_nfnmbiasn)*400e-9)+(_nfnmbiasn/2-int(_nfnmbiasn/2)!=0?(_wnmbiasn/_nfnmbiasn)*340e-9:0))/_nfnmbiasn'
++ps='_wnmbiasn/_nfnmbiasn<280e-9?((1.32e-6+int((_nfnmbiasn-1)/2.0)*1.52e-6)+(_nfnmbiasn/2-int(_nfnmbiasn/2)==0?1.32e-6:0))/_nfnmbiasn:((2*(_wnmbiasn/_nfnmbiasn+340e-9)+int((_nfnmbiasn-1)/2.0)*(2*(_wnmbiasn/_nfnmbiasn+400e-9)))+(_nfnmbiasn/2-int(_nfnmbiasn/2)==0?2*(_wnmbiasn/_nfnmbiasn+340e-9):0))/_nfnmbiasn' pd='_wnmbiasn/_nfnmbiasn<280e-9?(int(_nfnmbiasn/2.0)*1.52e-6+(_nfnmbiasn/2-int(_nfnmbiasn/2)!=0?1.32e-6:0))/_nfnmbiasn:(int(_nfnmbiasn/2.0)*(2*(_wnmbiasn/_nfnmbiasn+400e-9))+(_nfnmbiasn/2-int(_nfnmbiasn/2)!=0?2*(_wnmbiasn/_nfnmbiasn+340e-9):0))/_nfnmbiasn' m='1*_nfnmbiasn'
+ibiasn vddnet bias_n DC=100e-6
+xi16 0 bias_n bias_p vddnet in_n in_p output _sub0
+cload output 0 c1
+vin in_n 0 DC=vcm AC 1
+vip in_p 0 DC=vcm 
+vdc vddnet 0 DC=vdd
+************************************************
+
+
+*********** Analysis ***************************
+.TEMP 25.0
+.AC DEC 20 1 10G
+.OPTION BRIEF=0
+************************************************
+
+.control
+set units = degrees
+
+NOISE V(output, 0) vin dec 20 1 10G
+run
+
+
+
+meas AC GDC FIND vdb(output) at=1
+meas AC GBW WHEN vdb(output)=0
+meas AC PM_Negative FIND vp(output) WHEN vdb(output)=0
+
+let index = 0
+while frequency[index] <= GBW
+	let index = index + 1
+end
+
+let SDNOISE = noise1.inoise_spectrum[index]
+let PM = PM_Negative
+
+print PM
+print SDNOISE
+
+OP
+
+let IDDOL = -@vdc[i] - (100u + @mnmbiasp[id])
+print IDDOL
+
+
+#let FOM = ((GBW/1000000)*6)/(IDDOL*1000)
+#print FOM
+
+let vov_mnmbiasn = @mnmbiasn[vgs] - @mnmbiasn[vth] 
+print vov_mnmbiasn
+
+let vov_mnmbiasp = @mnmbiasp[vgs] - @mnmbiasp[vth] 
+print vov_mnmbiasp
+
+let vov_mpmbiasp = @mpmbiasp[vgs] - @mpmbiasp[vth] 
+print vov_mpmbiasp
+
+let vov_mpm0 = @m.xi16.mpm0[vgs] - @m.xi16.mpm0[vth] 
+print vov_mpm0
+
+let vov_mpm1 = @m.xi16.mpm1[vgs] - @m.xi16.mpm1[vth] 
+print vov_mpm1
+
+let vov_mpm2 = @m.xi16.mpm2[vgs] - @m.xi16.mpm2[vth] 
+print vov_mpm2
+
+let vov_mpm3 = @m.xi16.mpm3[vgs] - @m.xi16.mpm3[vth] 
+print vov_mpm3
+
+let vov_mpm4 = @m.xi16.mpm4[vgs] - @m.xi16.mpm4[vth] 
+print vov_mpm4
+
+let vov_mpm5 = @m.xi16.mpm5[vgs] - @m.xi16.mpm5[vth] 
+print vov_mpm5
+
+let vov_mpm6 = @m.xi16.mpm6[vgs] - @m.xi16.mpm6[vth] 
+print vov_mpm6
+
+
+let vov_mnm0 = @m.xi16.mnm0[vgs] - @m.xi16.mnm0[vth] 
+print vov_mnm0
+
+let vov_mnm1 = @m.xi16.mnm1[vgs] - @m.xi16.mnm1[vth] 
+print vov_mnm1
+
+let vov_mnm4 = @m.xi16.mnm4[vgs] - @m.xi16.mnm4[vth] 
+print vov_mnm4
+
+let vov_mnm5 = @m.xi16.mnm5[vgs] - @m.xi16.mnm5[vth] 
+print vov_mnm5
+
+let vov_mnm6 = @m.xi16.mnm6[vgs] - @m.xi16.mnm6[vth] 
+print vov_mnm6
+
+let vov_mnm7 = @m.xi16.mnm7[vgs] - @m.xi16.mnm7[vth] 
+print vov_mnm7
+
+let vov_mnm8 = @m.xi16.mnm8[vgs] - @m.xi16.mnm8[vth] 
+print vov_mnm8
+
+let vov_mnm9 = @m.xi16.mnm9[vgs] - @m.xi16.mnm9[vth] 
+print vov_mnm9
+
+let delta_mnmbiasn = @mnmbiasn[vds] - @mnmbiasn[vdsat]
+print delta_mnmbiasn
+
+let delta_mnmbiasp = @mnmbiasp[vds] - @mnmbiasp[vdsat]
+print delta_mnmbiasp
+
+let delta_mpmbiasp = @mpmbiasp[vds] - @mpmbiasp[vdsat]
+print delta_mpmbiasp
+
+let delta_mpm0 = @m.xi16.mpm0[vds] - @m.xi16.mpm0[vdsat]
+print delta_mpm0
+
+let delta_mpm1 = @m.xi16.mpm1[vds] - @m.xi16.mpm1[vdsat]
+print delta_mpm1
+
+let delta_mpm2 = @m.xi16.mpm2[vds] - @m.xi16.mpm2[vdsat]
+print delta_mpm2
+
+let delta_mpm3 = @m.xi16.mpm3[vds] - @m.xi16.mpm3[vdsat]
+print delta_mpm3
+
+let delta_mpm4 = @m.xi16.mpm4[vds] - @m.xi16.mpm4[vdsat]
+print delta_mpm4
+
+let delta_mpm5 = @m.xi16.mpm5[vds] - @m.xi16.mpm5[vdsat]
+print delta_mpm5
+
+let delta_mpm6 = @m.xi16.mpm6[vds] - @m.xi16.mpm6[vdsat]
+print delta_mpm6
+
+let delta_mnm0 = @m.xi16.mnm0[vds] - @m.xi16.mnm0[vdsat]
+print delta_mnm0
+
+let delta_mnm1 = @m.xi16.mnm1[vds] - @m.xi16.mnm1[vdsat]
+print delta_mnm1
+
+let delta_mnm4 = @m.xi16.mnm4[vds] - @m.xi16.mnm4[vdsat]
+print delta_mnm4
+
+let delta_mnm5 = @m.xi16.mnm5[vds] - @m.xi16.mnm5[vdsat]
+print delta_mnm5
+
+let delta_mnm6 = @m.xi16.mnm6[vds] - @m.xi16.mnm6[vdsat]
+print delta_mnm6
+
+let delta_mnm7 = @m.xi16.mnm7[vds] - @m.xi16.mnm7[vdsat]
+print delta_mnm7
+
+let delta_mnm8 = @m.xi16.mnm8[vds] - @m.xi16.mnm8[vdsat]
+print delta_mnm8
+
+let delta_mnm9 = @m.xi16.mnm9[vds] - @m.xi16.mnm9[vdsat]
+print delta_mnm9
+
+quit
+
+.endc
+
+.END

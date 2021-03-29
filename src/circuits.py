@@ -22,7 +22,8 @@ class Circuit(opt.Problem):
         self.folder = folder
         self.target = OptimizationTarget(setup["objectives"], setup["constraints"])
         self.testbenches = setup["testbenches"]
-
+        
+        self.objectives = self.target.objectives
         #parameters names wihc are the desing variables
         self.parameters = []
         #parameters ranges (mion, max, grid)
@@ -69,17 +70,22 @@ class Circuit(opt.Problem):
         '''
         return self.ranges[:,1]
   
-    def simulate(self, parameter_values):
+    def simulate(self, values):
         '''
         Simulate n circuits circuit using the values as parameters 
         in all test benches and colects measures.
         inputs:
         values a numpy array with the x solutions to simulate
         
-        Returns: the measures as a dict for each point in a list
+        Returns: the measures as a dict (indexed by corner) of dicts (indexed by meas)for each point in a list
         '''
+        try:
+            parameter_values =np.expand_dims(np.array([ values[k] for  k in self.parameters ]), axis=0)
+        except Exception:
+            parameter_values = values
+
+
         assert parameter_values.shape[1] == len(self.parameters)
-        
      
         
         sim_results = self.ngspice.simulate( parameter_values)
@@ -235,6 +241,10 @@ class OptimizationTarget:
     
     def asarray(self):
       return list(self.lt.values()) + list(self.gt.values())   
+
+
+
+
 
 
 

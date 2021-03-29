@@ -28,19 +28,19 @@ def compute_noise_meas(sim_results):
         sim_results = "... , "AC": [(freq, vdb, vp),...], "NOISE":[(freq, inoise_spectrum, onoise_spectrum)]}
     '''
 
-    if "NOISE" in sim_results and "GBW" in sim_results:
-
-        sd_inoise = None
-        sd_onoise = None    
-        for row  in sim_results["NOISE"]:
-            if row[0] < sim_results["GBW"]:
-                sd_inoise = row[1]
-                sd_onoise = row[2]
-        if sd_inoise is not None: 
-            sim_results["SDINOISE"] = sd_inoise
-            sim_results["SDONOISE"] = sd_onoise
+    if "NOISE" in sim_results:
+        if "GBW" in sim_results:
+            sd_inoise = None
+            sd_onoise = None    
+            for row  in sim_results["NOISE"]:
+                if row[0] < sim_results["GBW"]:
+                    sd_inoise = row[1]
+                    sd_onoise = row[2]
+            if sd_inoise is not None: 
+                sim_results["SDINOISE"] = sd_inoise
+                sim_results["SDONOISE"] = sd_onoise
         #remove raw data
-        sim_results["NOISE"] = []
+        del sim_results["NOISE"]
 
 def compute_ac_meas(sim_results):
     '''

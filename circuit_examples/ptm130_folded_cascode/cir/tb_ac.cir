@@ -11,7 +11,7 @@
 + VDD_MIN=2.97
 + T_MAX=75
 + T_MIN=0
-.TEMP 27.0
+.TEMP 50.0
 **
 ** Process, Voltage and Temperature settings for nominal.
 ** Pyhton script replaces this include to simulate other corners

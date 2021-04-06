@@ -7,7 +7,7 @@ BAIcO considers devices models for 130nm and 65nm from (http://ptm.asu.edu/) wit
 
 ## Circuit examples
 - PTM 130nm
-    - Folded Cascode Amplifier [notebook](https://github.com/user/repo/blob/branch/other_file.md)
+    - [Folded Cascode Amplifier](https://github.com/nunocclourenco/BAIcO/blob/main/folded_cascode.ipynb)
     - Symmetric Amplifier
     - Folded Inverter Based OTA for biomedical applications [1]
     - Folded Voltage-Combiners Biased Amplifier [2]

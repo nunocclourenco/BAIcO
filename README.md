@@ -7,7 +7,7 @@ BAIcO considers devices models for 130nm and 65nm from (http://ptm.asu.edu/) wit
 
 ## Circuit examples
 - PTM 130nm
-    - Folded Cascode Amplifier
+    - Folded Cascode Amplifier [notebook](https://github.com/user/repo/blob/branch/other_file.md)
     - Symmetric Amplifier
     - Folded Inverter Based OTA for biomedical applications [1]
     - Folded Voltage-Combiners Biased Amplifier [2]
@@ -26,7 +26,7 @@ A new family of CMOS inverter-based OTAs for biomedical and healthcare applicati
 Integration,
 Volume 71,
 2020,
-https://doi.org/10.1016/j.vlsi.2019.12.004.
+https://doi.org/10.1016/j.vlsi.2019.12.004. 
 
 [2] R. Póvoa, N. Lourenço, R. Martins, A. Canelas, N. Horta and J. Goes, "A Folded Voltage-Combiners Biased Amplifier for Low Voltage and High Energy-Efficiency Applications," in IEEE Transactions on Circuits and Systems II: Express Briefs, vol. 67, no. 2, pp. 230-234, Feb. 2020, https://doi.org/10.1109/TCSII.2019.2913083.
 

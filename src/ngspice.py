@@ -224,7 +224,7 @@ class Ngspice():
         self.cwd = cwd
         self.netlist = netlist 
         self.corners_data = load_corners(os.path.join(self.cwd, "cir", corners)) if corners is not None else {}
-        self.num_threads=num_threads
+        self.num_threads=min(num_threads, os.cpu_count())
         self.param = param
         
         #list to hold the simulations to be executed per point

@@ -1,0 +1,64 @@
+* Copyright 2021 Nuno Lourenço 
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+* Adapted from: 
+* Copyright 2020 The SkyWater PDK Authors
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     https://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+******* SkyWater sky130 model library *********
+
+* Typical corner (tt)
+.lib tt
+* MOSFET
+.include "../sky130/cells/nfet_01v8/sky130_fd_pr__nfet_01v8__tt.corner.spice"
+.include "../sky130/cells/nfet_01v8_lvt/sky130_fd_pr__nfet_01v8_lvt__tt.corner.spice"
+.include "../sky130/cells/pfet_01v8/sky130_fd_pr__pfet_01v8__tt.corner.spice"
+.include "../sky130/cells/nfet_03v3_nvt/sky130_fd_pr__nfet_03v3_nvt__tt.corner.spice"
+.include "../sky130/cells/nfet_05v0_nvt/sky130_fd_pr__nfet_05v0_nvt__tt.corner.spice"
+.include "../sky130/cells/esd_nfet_01v8/sky130_fd_pr__esd_nfet_01v8__tt.corner.spice"
+.include "../sky130/cells/pfet_01v8_lvt/sky130_fd_pr__pfet_01v8_lvt__tt.corner.spice"
+.include "../sky130/cells/pfet_01v8_hvt/sky130_fd_pr__pfet_01v8_hvt__tt.corner.spice"
+.include "../sky130/cells/esd_pfet_g5v0d10v5/sky130_fd_pr__esd_pfet_g5v0d10v5__tt.corner.spice"
+.include "../sky130/cells/pfet_g5v0d10v5/sky130_fd_pr__pfet_g5v0d10v5__tt.corner.spice"
+.include "../sky130/cells/pfet_g5v0d16v0/sky130_fd_pr__pfet_g5v0d16v0__tt.corner.spice"
+.include "../sky130/cells/nfet_g5v0d10v5/sky130_fd_pr__nfet_g5v0d10v5__tt.corner.spice"
+.include "../sky130/cells/nfet_g5v0d16v0/sky130_fd_pr__nfet_g5v0d16v0__tt_discrete.corner.spice"
+.include "../sky130/cells/esd_nfet_g5v0d10v5/sky130_fd_pr__esd_nfet_g5v0d10v5__tt.corner.spice"
+.include "../sky130/models/corners/tt/nonfet.spice"
+* Mismatch parameters
+.include "../sky130/cells/nfet_01v8/sky130_fd_pr__nfet_01v8__mismatch.corner.spice"
+.include "../sky130/cells/pfet_01v8/sky130_fd_pr__pfet_01v8__mismatch.corner.spice"
+.include "../sky130/cells/nfet_01v8_lvt/sky130_fd_pr__nfet_01v8_lvt__mismatch.corner.spice"
+.include "../sky130/cells/pfet_01v8_lvt/sky130_fd_pr__pfet_01v8_lvt__mismatch.corner.spice"
+.include "../sky130/cells/pfet_01v8_hvt/sky130_fd_pr__pfet_01v8_hvt__mismatch.corner.spice"
+.include "../sky130/cells/nfet_g5v0d10v5/sky130_fd_pr__nfet_g5v0d10v5__mismatch.corner.spice"
+.include "../sky130/cells/pfet_g5v0d10v5/sky130_fd_pr__pfet_g5v0d10v5__mismatch.corner.spice"
+.include "../sky130/cells/nfet_05v0_nvt/sky130_fd_pr__nfet_05v0_nvt__mismatch.corner.spice"
+.include "../sky130/cells/nfet_03v3_nvt/sky130_fd_pr__nfet_03v3_nvt__mismatch.corner.spice"
+* Resistor/Capacitor
+.include "../sky130/models/r+c/res_typical__cap_typical.spice"
+.include "../sky130/models/r+c/res_typical__cap_typical__lin.spice"
+* Special cells
+.include "../sky130/models/corners/tt/specialized_cells.spice"
+* All models
+.include "../sky130/models/all.spice"
+* Corner
+.include "../sky130/models/corners/tt/rf.spice"
+
+* generic models
+.include "./sky130A.spice.mdl"
+.endl tt

@@ -1,0 +1,2 @@
+** Nominal 
+.lib "../../../device_models/libs/sky130A.spice.lib" TT

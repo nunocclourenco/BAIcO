@@ -1,3 +1,50 @@
+** NGSPICE Simulation bench
+.OPTION TUNING=FAST
+.GLOBAL
+** Default values that can be used or modified in the corners
+.PARAM 
++ VDD=3.3 
++ VCM=1.65 
++ CL=6p 
++ IB=100u
++ VDD_MAX=3.63
++ VDD_MIN=2.97
++ T_MAX=75
++ T_MIN=0
+.TEMP 50.0
+**
+** Process, Voltage and Temperature settings for nominal.
+** Pyhton script replaces this include to simulate other corners
+**
+.include 'nominal.corner'
+**
+** Design variables for the circuit being simulated
+**
+.include 'design_var.inc'
+*********** Unit Under Test ********************
+.include "folded_cascode_ota.cir"
+*********** Test-bench *************************
+xi10 0 net15 vddnet vin vip vout folded_cascode_ota
+c0 vout 0 cl
+v2 vin 0 DC=vcm	
+v1 vip 0 DC=vcm AC 1
+v0 vddnet 0 DC=vdd
+i1 vddnet net15 DC=100u
+
+xi11 0 net16 vddd vinn vipp voutt folded_cascode_ota
+c1 voutt 0 cl
+v5 vipp 0 DC=vcm
+v4 vinn 0 DC=vcm
+v3 vddd 0 DC=vdd AC 1
+i2 vddd net16 DC=100u
+************************************************
+** make params acessible in control
+.csparam ib_sp = IB
+.csparam cl_sp = CL
+************************************************
+.control
+set units = degrees
+
 let cl = $&cl_sp
 print cl
 AC DEC 21 1 1G
@@ -10,7 +57,7 @@ let PSRR = GDC-GPS
 print PM PSRR
 ************************************************
 * Run noise
-NOISE V(vout, 0) v1 dec 21 0.01 10G
+NOISE V(vout, 0) v1 dec 21 1 1G
 print inoise_total onoise_total
 let count = length(noise1.frequency)
 echo "NOISE output $&count 3"
@@ -49,3 +96,7 @@ let delta_mnm6 = @m.xi10.mnm6[vds] - @m.xi10.mnm6[vdsat]
 let delta_mnm7 = @m.xi10.mnm7[vds] - @m.xi10.mnm7[vdsat]
 let delta_mnm8 = @m.xi10.mnm8[vds] - @m.xi10.mnm8[vdsat]
 print delta_mpm0 delta_mpm1 delta_mpm3 delta_mpm4 delta_mpm5 delta_mpm6 delta_mnm1 delta_mnm2 delta_mnm3 delta_mnm4 delta_mnm5 delta_mnm6 delta_mnm7 delta_mnm8
+
+quit
+.endc
+.END

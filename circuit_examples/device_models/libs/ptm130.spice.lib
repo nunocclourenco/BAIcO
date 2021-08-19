@@ -1,0 +1,58 @@
+.LIB tt            
+.PARAM           
+.include '../ptm130/130nm_NMOS12.pm'
+.include '../ptm130/130nm_PMOS12.pm'
+.include '../ptm130/130nm_NMOS33.pm'
+.include '../ptm130/130nm_PMOS33.pm'
+
+.include "./ptm130.spice.mdl"
+
+.ENDL tt    
+
+.LIB ff            
+.PARAM           
+.include '../ptm130/130nm_NMOS12_ff.pm'
+.include '../ptm130/130nm_PMOS12_ff.pm'
+.include '../ptm130/130nm_NMOS33_ff.pm'
+.include '../ptm130/130nm_PMOS33_ff.pm'
+
+.include "./ptm130.spice.mdl"
+
+.ENDL ff    
+
+.LIB ss            
+.PARAM           
+.include '../ptm130/130nm_NMOS12_ss.pm'
+.include '../ptm130/130nm_PMOS12_ss.pm'
+.include '../ptm130/130nm_NMOS33_ss.pm'
+.include '../ptm130/130nm_PMOS33_ss.pm'       
+
+.include "./ptm130.spice.mdl"
+
+.ENDL ss    
+
+.LIB fnsp            
+.PARAM           
+.include '../ptm130/130nm_NMOS12_ff.pm'
+.include '../ptm130/130nm_PMOS12_ss.pm'
+.include '../ptm130/130nm_NMOS33_ff.pm'
+.include '../ptm130/130nm_PMOS33_ss.pm'          
+
+.include "./ptm130.spice.mdl"
+
+.ENDL fnsp    
+
+.LIB snfp            
+.PARAM           
+.include '../ptm130/130nm_NMOS12_ss.pm'
+.include '../ptm130/130nm_PMOS12_ff.pm'
+.include '../ptm130/130nm_NMOS33_ss.pm'
+.include '../ptm130/130nm_PMOS33_ff.pm' 
+
+.include "./ptm130.spice.mdl"
+
+.ENDL snfp    
+
+
+
+

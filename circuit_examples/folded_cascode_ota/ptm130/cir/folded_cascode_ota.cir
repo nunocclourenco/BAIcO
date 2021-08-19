@@ -1,0 +1,20 @@
+*********************************************************
+** Cell name: Single-Ended Folded Cascode
+** 
+.subckt folded_cascode_ota gnd ibias vdd vin vip vout
+xmnm7 net11  net11   gnd     gnd     nmos3v3 w='_wn7' l='_ln7' fingers='1*_nfn7'
+xmnm8 net15  net11   gnd     gnd     nmos3v3 w='_wn7' l='_ln7' fingers='1*_nfn7'
+xmnm2 net14  net27   gnd     gnd     nmos3v3 w='_wn2' l='_ln1' fingers='1*_nfn2'
+xmnm3 net0124 vip    net14 net14     nmos3v3 w='_wn3' l='_ln3' fingers='1*_nfp3'
+xmnm4 net0128 vin    net14 net14     nmos3v3 w='_wn3' l='_ln3' fingers='1*_nfn3'
+xmnm6 vout   net31   net15 net15     nmos3v3 w='_wn5' l='_ln5' fingers='1*_nfn5'
+xmnm5 net31  net31   net11 net11     nmos3v3 w='_wn5' l='_ln5' fingers='1*_nfn5'
+xmnm1 net27  net27   gnd     gnd     nmos3v3 w='_wn1' l='_ln1' fingers='1*_nfn1'
+xmpm4 net0128 net56  vdd     vdd     pmos3v3 w='_wp3' l='_lp0' fingers='1*_nfp3'
+xmpm3 net0124 net56  vdd     vdd     pmos3v3 w='_wp3' l='_lp0' fingers='1*_nfp3'
+xmpm6 vout   net27   net0128 net0128 pmos3v3 w='_wp5' l='_lp1' fingers='1*_nfp5'
+xmpm0 net56  net56   ibias ibias     pmos3v3 w='_wp0' l='_lp0' fingers='1*_nfp0'
+xmpm5 net31  net27   net0124 net0124 pmos3v3 w='_wp5' l='_lp1' fingers='1*_nfp5'
+xmpm1 net27  net27   net56   net56   pmos3v3 w='_wp1' l='_lp1' fingers='1*_nfp1'
+.ends
+*********************************************************

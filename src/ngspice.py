@@ -73,32 +73,34 @@ def parse_sim_results(cwd, meas_file):
                 line = line.strip() 
                 if (not line) or (line[0] == '*' ) or (line[0] == '-'): continue
 
-                elif "AC output" in line: 
-                    vector_id = "AC"
-                    vector_size =  int(line.split()[-1])
-                    vector_idx = 0
-                    sim_results[vector_id] = [None]*vector_size
-                elif "NOISE output" in line:
-                    vector_id = "NOISE"
-                    vector_size =  int(line.split()[-2])
-                    vector_row_size =  int(line.split()[-1])
-                    vector_idx = 0
-                    sim_results[vector_id] = np.full((vector_size, vector_row_size), np.NaN)
-                else:
-                    if "=" in line:
-                        content = line.split()
-                        if len(content) >= 3 and content[1] == '=': sim_results[content[0].upper()] = float(content[2])
-                    elif 'Index' in line:
-                        parse_vector = True
-                    elif parse_vector:
-                        content = line.split()
-                        try:
-                            sim_results[vector_id][vector_idx, :] = content[1:]
-                            vector_idx = vector_idx + 1
-                            if vector_idx == vector_size: parse_vector = False
-                        except Exception as e:
-                            logging.warning(e + "was raised when parsing " + line)
-
+                try: 
+                    if "AC output" in line: 
+                        vector_id = "AC"
+                        vector_size =  int(line.split()[-1])
+                        vector_idx = 0
+                        sim_results[vector_id] = [None]*vector_size
+                    elif "NOISE output" in line:
+                        vector_id = "NOISE"
+                        vector_size =  int(line.split()[-2])
+                        vector_row_size =  int(line.split()[-1])
+                        vector_idx = 0
+                        sim_results[vector_id] = np.full((vector_size, vector_row_size), np.NaN)
+                    else:
+                        if "=" in line:
+                            content = line.split()
+                            if len(content) >= 3 and content[1] == '=': sim_results[content[0].upper()] = float(content[2])
+                        elif 'Index' in line:
+                            parse_vector = True
+                        elif parse_vector:
+                            content = line.split()
+                            try:
+                                sim_results[vector_id][vector_idx, :] = content[1:]
+                                vector_idx = vector_idx + 1
+                                if vector_idx == vector_size: parse_vector = False
+                            except Exception as e:
+                                logging.warning(str(e) + "was raised when parsing " + line)
+                except ValueError as e:
+                    logging.warning(str(e) + " when parsing " + line )
 
     except FileNotFoundError:
         logging.warning(os.path.join(cwd, meas_file) + " file not found!")

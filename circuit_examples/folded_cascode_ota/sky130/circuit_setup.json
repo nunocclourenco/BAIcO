@@ -1,8 +1,8 @@
 {
     "ranges": [
-        {"params": ["_wn1","_wn2","_wn3","_wn5","_wn7","_wp0","_wp1","_wp3","_wp5"], "min": 1e-6, "max":100e-6, "grid": 0.1e-6},
-        {"params": ["_ln1","_ln3","_ln5","_ln7","_lp0","_lp1"], "min": 0.13e-6, "max":5e-6, "grid": 0.01e-6},
-        {"params": ["_nfn1","_nfn2", "_nfn3", "_nfn5", "_nfn7", "_nfp0", "_nfp1", "_nfp3", "_nfp5"], "min": 1, "max": 8, "grid": 1}
+        {"params": ["_wn1","_wn2","_wn3","_wn5","_wn7","_wp0","_wp1","_wp3","_wp5"], "min": 1e-6, "max":200e-6, "grid": 0.1e-6},
+        {"params": ["_ln1","_ln3","_ln5","_ln7","_lp0","_lp1"], "min": 0.15e-6, "max":5e-6, "grid": 0.01e-6},
+        {"params": ["_nfn1","_nfn2", "_nfn3", "_nfn5", "_nfn7", "_nfp0", "_nfp1", "_nfp3", "_nfp5"], "min": 1, "max": 15, "grid": 1}
     ],
     "testbenches": ["tb_ac.cir"],
     "objectives": [
@@ -12,7 +12,7 @@
     ],
     "constraints": [
         "GDC > 50",
-        "IDD < 35e-5",
+        "IDD < 50e-5",
         "PM < 90",
         "PM > 45",
         "GBW > 15e6",

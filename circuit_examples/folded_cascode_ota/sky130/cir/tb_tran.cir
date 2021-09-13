@@ -28,10 +28,10 @@
 
 *********** Test-bench *************************
 x1 0 ib vdd vout vip vout folded_cascode_ota
-c1 vout 0 'CL'
+c1 vout 0 {CL}
 v11 vip 0 PULSE 1.15 2.15 1e-3 500e-12 500e-12 1e-3 2e-3
-v10 vdd 0 DC='VDD'
-i1  vdd ib DC='IB'
+v10 vdd 0 DC={VDD}
+i1  vdd ib DC={IB}
 *********************************************************
 
 *********** Analysis ***************************

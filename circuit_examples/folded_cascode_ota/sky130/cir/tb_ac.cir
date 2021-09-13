@@ -25,22 +25,22 @@
 .include "folded_cascode_ota.cir"
 *********** Test-bench *************************
 xi10 0 net15 vddnet vin vip vout folded_cascode_ota
-c0 vout 0 cl
+c0 vout 0 {CL}
 v2 vin 0 DC=vcm	
 v1 vip 0 DC=vcm AC 1
 v0 vddnet 0 DC=vdd
 i1 vddnet net15 DC=100u
 
 xi11 0 net16 vddd vinn vipp voutt folded_cascode_ota
-c1 voutt 0 cl
+c1 voutt 0 {CL}
 v5 vipp 0 DC=vcm
 v4 vinn 0 DC=vcm
 v3 vddd 0 DC=vdd AC 1
 i2 vddd net16 DC=100u
 ************************************************
 ** make params acessible in control
-.csparam ib_sp = IB
-.csparam cl_sp = CL
+.csparam ib_sp = {IB}
+.csparam cl_sp = {CL}
 ************************************************
 .control
 set units = degrees
@@ -64,37 +64,37 @@ echo "NOISE output $&count 3"
 print noise1.all
 OP
 let idd = mag(i(v0)) - $&ib_sp
-let outswing = 1.65 - @m.xi10.mnm6[vdsat] - @m.xi10.mnm8[vdsat]
+let outswing = 1.65 - @m.xi10.xmnm6.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat] - @m.xi10.xmnm8.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat]
 print idd outswing 
-let vov_mpm0 = @m.xi10.mpm0[vgs] - @m.xi10.mpm0[vth] 
-let vov_mpm1 = @m.xi10.mpm1[vgs] - @m.xi10.mpm1[vth]
-let vov_mpm3 = @m.xi10.mpm3[vgs] - @m.xi10.mpm3[vth]
-let vov_mpm4 = @m.xi10.mpm4[vgs] - @m.xi10.mpm4[vth]
-let vov_mpm5 = @m.xi10.mpm5[vgs] - @m.xi10.mpm5[vth]
-let vov_mpm6 = @m.xi10.mpm6[vgs] - @m.xi10.mpm6[vth]
-let vov_mnm1 = @m.xi10.mnm1[vgs] - @m.xi10.mnm1[vth] 
-let vov_mnm2 = @m.xi10.mnm2[vgs] - @m.xi10.mnm2[vth] 
-let vov_mnm3 = @m.xi10.mnm3[vgs] - @m.xi10.mnm3[vth] 
-let vov_mnm4 = @m.xi10.mnm4[vgs] - @m.xi10.mnm4[vth] 
-let vov_mnm5 = @m.xi10.mnm5[vgs] - @m.xi10.mnm5[vth] 
-let vov_mnm6 = @m.xi10.mnm6[vgs] - @m.xi10.mnm6[vth] 
-let vov_mnm7 = @m.xi10.mnm7[vgs] - @m.xi10.mnm7[vth] 
-let vov_mnm8 = @m.xi10.mnm8[vgs] - @m.xi10.mnm8[vth] 
+let vov_mpm0 = @m.xi10.xmpm0.xm1.msky130_fd_pr__pfet_g5v0d10v5[vgs] - @m.xi10.xmpm0.xm1.msky130_fd_pr__pfet_g5v0d10v5[vth] 
+let vov_mpm1 = @m.xi10.xmpm1.xm1.msky130_fd_pr__pfet_g5v0d10v5[vgs] - @m.xi10.xmpm1.xm1.msky130_fd_pr__pfet_g5v0d10v5[vth]
+let vov_mpm3 = @m.xi10.xmpm3.xm1.msky130_fd_pr__pfet_g5v0d10v5[vgs] - @m.xi10.xmpm3.xm1.msky130_fd_pr__pfet_g5v0d10v5[vth]
+let vov_mpm4 = @m.xi10.xmpm4.xm1.msky130_fd_pr__pfet_g5v0d10v5[vgs] - @m.xi10.xmpm4.xm1.msky130_fd_pr__pfet_g5v0d10v5[vth]
+let vov_mpm5 = @m.xi10.xmpm5.xm1.msky130_fd_pr__pfet_g5v0d10v5[vgs] - @m.xi10.xmpm5.xm1.msky130_fd_pr__pfet_g5v0d10v5[vth]
+let vov_mpm6 = @m.xi10.xmpm6.xm1.msky130_fd_pr__pfet_g5v0d10v5[vgs] - @m.xi10.xmpm6.xm1.msky130_fd_pr__pfet_g5v0d10v5[vth]
+let vov_mnm1 = @m.xi10.xmnm1.xm1.msky130_fd_pr__nfet_g5v0d10v5[vgs] - @m.xi10.xmnm1.xm1.msky130_fd_pr__nfet_g5v0d10v5[vth] 
+let vov_mnm2 = @m.xi10.xmnm2.xm1.msky130_fd_pr__nfet_g5v0d10v5[vgs] - @m.xi10.xmnm2.xm1.msky130_fd_pr__nfet_g5v0d10v5[vth] 
+let vov_mnm3 = @m.xi10.xmnm3.xm1.msky130_fd_pr__nfet_g5v0d10v5[vgs] - @m.xi10.xmnm3.xm1.msky130_fd_pr__nfet_g5v0d10v5[vth] 
+let vov_mnm4 = @m.xi10.xmnm4.xm1.msky130_fd_pr__nfet_g5v0d10v5[vgs] - @m.xi10.xmnm4.xm1.msky130_fd_pr__nfet_g5v0d10v5[vth] 
+let vov_mnm5 = @m.xi10.xmnm5.xm1.msky130_fd_pr__nfet_g5v0d10v5[vgs] - @m.xi10.xmnm5.xm1.msky130_fd_pr__nfet_g5v0d10v5[vth] 
+let vov_mnm6 = @m.xi10.xmnm6.xm1.msky130_fd_pr__nfet_g5v0d10v5[vgs] - @m.xi10.xmnm6.xm1.msky130_fd_pr__nfet_g5v0d10v5[vth] 
+let vov_mnm7 = @m.xi10.xmnm7.xm1.msky130_fd_pr__nfet_g5v0d10v5[vgs] - @m.xi10.xmnm7.xm1.msky130_fd_pr__nfet_g5v0d10v5[vth] 
+let vov_mnm8 = @m.xi10.xmnm8.xm1.msky130_fd_pr__nfet_g5v0d10v5[vgs] - @m.xi10.xmnm8.xm1.msky130_fd_pr__nfet_g5v0d10v5[vth] 
 print vov_mpm0 vov_mpm1 vov_mpm3 vov_mpm4 vov_mpm5 vov_mpm6 vov_mnm1 vov_mnm2 vov_mnm3 vov_mnm4 vov_mnm5 vov_mnm6 vov_mnm7 vov_mnm8
-let delta_mpm0 = @m.xi10.mpm0[vds] - @m.xi10.mpm0[vdsat]
-let delta_mpm1 = @m.xi10.mpm1[vds] - @m.xi10.mpm1[vdsat]
-let delta_mpm3 = @m.xi10.mpm3[vds] - @m.xi10.mpm3[vdsat]
-let delta_mpm4 = @m.xi10.mpm4[vds] - @m.xi10.mpm4[vdsat]
-let delta_mpm5 = @m.xi10.mpm5[vds] - @m.xi10.mpm5[vdsat]
-let delta_mpm6 = @m.xi10.mpm6[vds] - @m.xi10.mpm6[vdsat]
-let delta_mnm1 = @m.xi10.mnm1[vds] - @m.xi10.mnm1[vdsat]
-let delta_mnm2 = @m.xi10.mnm2[vds] - @m.xi10.mnm2[vdsat]
-let delta_mnm3 = @m.xi10.mnm3[vds] - @m.xi10.mnm3[vdsat]
-let delta_mnm4 = @m.xi10.mnm4[vds] - @m.xi10.mnm4[vdsat]
-let delta_mnm5 = @m.xi10.mnm5[vds] - @m.xi10.mnm5[vdsat]
-let delta_mnm6 = @m.xi10.mnm6[vds] - @m.xi10.mnm6[vdsat]
-let delta_mnm7 = @m.xi10.mnm7[vds] - @m.xi10.mnm7[vdsat]
-let delta_mnm8 = @m.xi10.mnm8[vds] - @m.xi10.mnm8[vdsat]
+let delta_mpm0 = @m.xi10.xmpm0.xm1.msky130_fd_pr__pfet_g5v0d10v5[vds] - @m.xi10.xmpm0.xm1.msky130_fd_pr__pfet_g5v0d10v5[vdsat]
+let delta_mpm1 = @m.xi10.xmpm1.xm1.msky130_fd_pr__pfet_g5v0d10v5[vds] - @m.xi10.xmpm1.xm1.msky130_fd_pr__pfet_g5v0d10v5[vdsat]
+let delta_mpm3 = @m.xi10.xmpm3.xm1.msky130_fd_pr__pfet_g5v0d10v5[vds] - @m.xi10.xmpm3.xm1.msky130_fd_pr__pfet_g5v0d10v5[vdsat]
+let delta_mpm4 = @m.xi10.xmpm4.xm1.msky130_fd_pr__pfet_g5v0d10v5[vds] - @m.xi10.xmpm4.xm1.msky130_fd_pr__pfet_g5v0d10v5[vdsat]
+let delta_mpm5 = @m.xi10.xmpm5.xm1.msky130_fd_pr__pfet_g5v0d10v5[vds] - @m.xi10.xmpm5.xm1.msky130_fd_pr__pfet_g5v0d10v5[vdsat]
+let delta_mpm6 = @m.xi10.xmpm6.xm1.msky130_fd_pr__pfet_g5v0d10v5[vds] - @m.xi10.xmpm6.xm1.msky130_fd_pr__pfet_g5v0d10v5[vdsat]
+let delta_mnm1 = @m.xi10.xmnm1.xm1.msky130_fd_pr__nfet_g5v0d10v5[vds] - @m.xi10.xmnm1.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat]
+let delta_mnm2 = @m.xi10.xmnm2.xm1.msky130_fd_pr__nfet_g5v0d10v5[vds] - @m.xi10.xmnm2.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat]
+let delta_mnm3 = @m.xi10.xmnm3.xm1.msky130_fd_pr__nfet_g5v0d10v5[vds] - @m.xi10.xmnm3.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat]
+let delta_mnm4 = @m.xi10.xmnm4.xm1.msky130_fd_pr__nfet_g5v0d10v5[vds] - @m.xi10.xmnm4.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat]
+let delta_mnm5 = @m.xi10.xmnm5.xm1.msky130_fd_pr__nfet_g5v0d10v5[vds] - @m.xi10.xmnm5.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat]
+let delta_mnm6 = @m.xi10.xmnm6.xm1.msky130_fd_pr__nfet_g5v0d10v5[vds] - @m.xi10.xmnm6.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat]
+let delta_mnm7 = @m.xi10.xmnm7.xm1.msky130_fd_pr__nfet_g5v0d10v5[vds] - @m.xi10.xmnm7.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat]
+let delta_mnm8 = @m.xi10.xmnm8.xm1.msky130_fd_pr__nfet_g5v0d10v5[vds] - @m.xi10.xmnm8.xm1.msky130_fd_pr__nfet_g5v0d10v5[vdsat]
 print delta_mpm0 delta_mpm1 delta_mpm3 delta_mpm4 delta_mpm5 delta_mpm6 delta_mnm1 delta_mnm2 delta_mnm3 delta_mnm4 delta_mnm5 delta_mnm6 delta_mnm7 delta_mnm8
 
 quit

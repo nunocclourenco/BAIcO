@@ -37,7 +37,9 @@ def load_pof(fname, keys = None):
 
     return pof, tuple(key_tuples)
 
-
+def expand_ranges(min, max, s=0.05):
+    d = s*(max - min)
+    return min - d, max + d 
 
 def plt_pof(history_files, scales = None):
     pofs = []

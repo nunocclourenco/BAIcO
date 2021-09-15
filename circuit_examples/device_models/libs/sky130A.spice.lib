@@ -28,11 +28,68 @@
 .option scale=1.0u
 
 * MOSFET
-.include "../sky130/nfet_01v8__tt.spice"
-.include "../sky130/pfet_01v8__tt.spice"
-.include "../sky130/pfet_g5v0d10v5__tt.spice"
-.include "../sky130/nfet_g5v0d10v5__tt.spice"
+.include "../sky130/nfet_01v8__tt_min.spice"
+.include "../sky130/pfet_01v8__tt_min.spice"
+.include "../sky130/pfet_g5v0d10v5__tt_min.spice"
+.include "../sky130/nfet_g5v0d10v5__tt_min.spice"
 
 * generic models
 .include "./sky130A.spice.mdl"
 .endl tt
+
+
+.lib ss
+.option scale=1.0u
+
+* MOSFET
+.include "../sky130/nfet_01v8__ss.spice"
+.include "../sky130/pfet_01v8__ss.spice"
+.include "../sky130/pfet_g5v0d10v5__ss.spice"
+.include "../sky130/nfet_g5v0d10v5__ss.spice"
+
+* generic models
+.include "./sky130A.spice.mdl"
+.endl ss
+
+
+.lib ff
+.option scale=1.0u
+
+* MOSFET
+.include "../sky130/nfet_01v8__ff.spice"
+.include "../sky130/pfet_01v8__ff.spice"
+.include "../sky130/pfet_g5v0d10v5__ff.spice"
+.include "../sky130/nfet_g5v0d10v5__ff.spice"
+
+* generic models
+.include "./sky130A.spice.mdl"
+.endl ff
+
+
+.lib snfp
+.option scale=1.0u
+
+* MOSFET
+.include "../sky130/nfet_01v8__sf.spice"
+.include "../sky130/pfet_01v8__sf.spice"
+.include "../sky130/pfet_g5v0d10v5__sf.spice"
+.include "../sky130/nfet_g5v0d10v5__sf.spice"
+
+* generic models
+.include "./sky130A.spice.mdl"
+.endl snfp
+
+.lib fnsp
+.option scale=1.0u
+
+* MOSFET
+.include "../sky130/nfet_01v8__fs.spice"
+.include "../sky130/pfet_01v8__fs.spice"
+.include "../sky130/pfet_g5v0d10v5__fs.spice"
+.include "../sky130/nfet_g5v0d10v5__fs.spice"
+
+* generic models
+.include "./sky130A.spice.mdl"
+.endl snfp
+
+

@@ -3,13 +3,15 @@ Created on Feb 1, 2019
 
 @author: aida
 '''
+import os
 import math
 import numpy as np
 import optimizers as opt
 import json
 import ngspice
-
-
+import random
+import pandas as pd
+from datetime import datetime
 
 class Circuit(opt.Problem):
     def __init__(self, folder, setup_file="circuit_setup.json", corners="corners.inc"):
@@ -245,25 +247,52 @@ class OptimizationTarget:
 
 
 
+# utility functions
+def simulate_default(circuit_path, corners=None):
+  '''
+  load the cicruit definitions and targets defined in circuit_setup.json
+  and simulate the default sizing in sizing_example.json.
+  '''
+  circuit = Circuit(circuit_path, corners=corners)
 
+  #load the defaul example sizing
+  with open(circuit_path + "sizing_example.json", 'r') as file:
+      sizing = json.load(file)
 
+  return circuit.simulate(sizing)
 
-if __name__ == "__main__":
-    c = Circuit("./circuit_examples/ptm130_folded_cascode/")
-    with open("./circuit_examples/ptm130_folded_cascode/sizing_example.json", 'r') as file:
-        sizing = json.load(file)
+def run_optimization(circuit_path, out_folder, corners=None, 
+         pop_size=32, iterations=100, mutation=0.2, crossover=0.6, seed=42):
+  np.random.seed(seed)
+  random.seed(seed)
+  nsga2=opt.NSGA2()
 
+  if not os.path.exists(out_folder):
+    os.makedirs(out_folder)
 
-    meas = c.simulate(np.array([c.sort_param_values(sizing)]))
+  print("Starting optimization", datetime.now().time(), flush=True)
+  i = 0
+  folded_cascode = Circuit(circuit_path, corners=corners)
+  for pop, pop_obj,  pop_cstr, pop_data, evals, front_no in nsga2.minimize(
+        folded_cascode,
+        pop_size=pop_size, evaluations=pop_size*iterations, 
+        mutation=mutation, crossover=crossover):
+          
+          print('\r',i, pop_cstr[pop_cstr.argmax()], pop_data[pop_cstr.argmax()], datetime.now().time(), end='', flush=True)
+          with open("{}history_{}_{}_{}.json".format(out_folder,pop_size,seed, i), "w") as file: 
+              json.dump(
+              {
+                  "pop":json.loads(pd.DataFrame(data=pop, columns=folded_cascode.parameters).to_json(orient="records")),
+                  "obj":json.loads(pd.DataFrame(data=pop_obj, columns=folded_cascode.objectives).to_json(orient="records")),
+                  "cstr":pop_cstr.tolist(),
+                  "data":pop_data,
+                  "evals":evals,
+                  "fn":[ str(fn) for fn in front_no.tolist()]
+              },
+              file  
+              )
+          i = i + 1
 
-    print(meas)
-
-    obj,cstr, log = c.cost_fun(np.array([c.sort_param_values(sizing)])) 
-
-    print(obj, cstr)
-    print(log[0][1])
-    for k,v in log[0][1]['TT'].items():
-        print(k, v)
 
 
 

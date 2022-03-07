@@ -1,0 +1,57 @@
+* Copyright 2021 Nuno Lourenço 
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+
+.LIB tt            
+.PARAM           
+.include '../ptm65/65nm_NMOS.pm'
+.include '../ptm65/65nm_PMOS.pm'
+
+.include "./ptm65.spice.mdl"
+
+.ENDL tt    
+
+.LIB ff            
+.PARAM           
+.include '../ptm65/65nm_NMOS_ff.pm'
+.include '../ptm65/65nm_PMOS_ff.pm'
+
+.include "./ptm65.spice.mdl"
+
+.ENDL ff    
+
+.LIB ss            
+.PARAM           
+.include '../ptm65/65nm_NMOS_ss.pm'
+.include '../ptm65/65nm_PMOS_ss.pm'
+
+.include "./ptm65.spice.mdl"
+
+.ENDL ss    
+
+.LIB fnsp            
+.PARAM           
+.include '../ptm65/65nm_NMOS_ff.pm'
+.include '../ptm65/65nm_PMOS_ss.pm'
+
+.include "./ptm65.spice.mdl"
+
+.ENDL fnsp    
+
+.LIB snfp            
+.PARAM           
+.include '../ptm65/65nm_NMOS_ss.pm'
+.include '../ptm65/65nm_PMOS_ff.pm'
+
+
+.include "./ptm65.spice.mdl"
+
+.ENDL snfp    
+
+
+
+

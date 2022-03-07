@@ -1,9 +1,9 @@
 # BAIcO - An Open Source Benchmark for Analog IC Optimization
 
-Optimization is the de facto approach for Analog IC Sizing automation. However, the lack of an open benchmark due to intellectual property barriers prevents the comparison between approaches. BAIcO, is an open framework for circuit sizing optimization and benchmarking based only on open source tools and open device models.  The framework implemented in python, and the circuit models are from the http://ptm.asu.edu/, generated for TT, SS, FF, SF, and FS corners, and the simulator is ngspice (http://ngspice.sourceforge.net/) 
+Optimization is the de facto approach for Analog IC Sizing automation. However, the lack of an open benchmark due to intellectual property barriers prevents the comparison between approaches. BAIcO, is an open framework for circuit sizing optimization and benchmarking based only on open source tools and open device models.  The framework implemented in python and the simulator is ngspice (http://ngspice.sourceforge.net/).  
 
 ## Device models
-BAIcO considers devices models for 130nm and 65nm from (http://ptm.asu.edu/) with the corner options for FF, SS, SF, and FS, and 150nm SKY130A with the corner options for FF, SS, SF, and FS, LL, HH, HL, LH. **Corners tBD**
+BAIcO considers devices models for 130nm and 65nm from (http://ptm.asu.edu/) with the corner options for FF, SS, SF, and FS, and 130nm SKY130A with the corner options for FF, SS, SF, and FS, LL, HH, HL, LH. (https://github.com/google/skywater-pdk , https://github.com/RTimothyEdwards/open_pdks ) **Corners tBD**
 
 ## [Circuit examples](https://github.com/nunocclourenco/BAIcO/blob/main/examples.ipynb)
 - PTM 130nm
@@ -21,7 +21,7 @@ BAIcO considers devices models for 130nm and 65nm from (http://ptm.asu.edu/) wit
     - **TBD** Folded Inverter Based OTA for biomedical applications [1]
     - Folded Voltage-Combiners OTA [2]
     - **TBD** Single-Stage OTA Biased by Voltage-Combiners With Enhanced Performance Using Current Starving [3]
-    - Single-Stage OTA Biased by Voltage-Combiners [4] 
+    - **TBD** Single-Stage OTA Biased by Voltage-Combiners [4] 
     - **TBD** Two Stage Miller Amplifier
     - **TBD** Two Stage Folded Cascode Miller Amplifier
 - PTM 65nm

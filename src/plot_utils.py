@@ -1,35 +1,31 @@
+
+
 import matplotlib.pyplot as plt
 import matplotlib.ticker as tick
 import matplotlib.animation as animation
 import numpy as np
 import json 
 
-
-def pof2gnuplot(history_files, fout="pof.dat", keys = None):
-    if not history["obj"] : return 
-    
-    nelems = len(history["obj"])
-    if not keys : keys = history["obj"][0].keys
-
-    with open(fout, 'w') as file:
-        file.write("#")
-        for k in keys : file.write("{} ".format(k))
-        file.write('\n')
-        for i in range(nelems):
-            if history["fn"][i] != '1.0': continue
-            for k in keys : file.write("{} ".format(history["obj"][i][k]))
-            file.write('\n')
+'''
+Basic utilities for processing the history output files, mostly to suport development.
+Once the circuit setups and optimization are stable:
+    improve vizualization
+    improve topology comparisson
+    create tools to convert history files in datasets
+'''
 
 
-
-def load_pof(fname, keys = None):
+def load_pof(fname):
+    '''
+    load the objectives for the solutions in the dominating front
+    '''
     with open(fname) as file:
         history = json.load(file)
 
     if not history["obj"] : return 
     
     nelems = len(history["obj"])
-    if not keys : keys = history["obj"][0].keys()
+    keys = history["obj"][0].keys()
 
     key_tuples = [eval(k) for k in keys]
 
@@ -38,10 +34,16 @@ def load_pof(fname, keys = None):
     return pof, tuple(key_tuples)
 
 def expand_ranges(min, max, s=0.05):
+    '''
+    utility function to create margin in the plot
+    '''
     d = s*(max - min)
     return min - d, max + d 
 
 def plt_pof(history_files, scales = None):
+    '''
+    plots the POF from the history file, optinal scales define axis units and scaling
+    '''
     pofs = []
     for f in history_files:
         pof, keys = load_pof(f)

@@ -1,9 +1,0 @@
-******
-** ngspice-26 : Circuit level simulation program
-** The U. C. Berkeley CAD Group
-** Copyright 1985-1994, Regents of the University of California.
-** Please get your ngspice manual from http://ngspice.sourceforge.net/docs.html
-** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html
-** Creation Date: Thu Dec  1 15:52:01 EST 2016
-******
-[?1034hngspice 2 -> ngspice 3 -> 

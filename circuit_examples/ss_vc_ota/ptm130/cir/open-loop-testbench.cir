@@ -1,7 +1,5 @@
 ** NGSPICE Simulation bench
 
-
-
 .GLOBAL
 ** Default values that can be modified in the corners
 .PARAM vdd=3.3 vcm=1.65 c1=6p ib=100u
@@ -10,14 +8,14 @@
 ** Process, Voltage and Temperature settings for nominal.
 ** Pyhton script replaces this include to simulate other corners
 **
-.lib "../device_models/ptm130/ptm-130.lib" FNSP
+.include 'nominal.corner'
 **
 ** Design variables for the circuit being simulated
 **
 .include 'design_var.inc'
 
 *********** Unit Under Test ********************
-.include "ssvcamp.cir"
+.include "ss_vc_ota.cir"
 
 *********** Test-bench *************************
 mnmbias halfvdd halfvdd 0 0 nmos33 w='_w10/_nf10' l='_l10'  m='_nf10'
@@ -26,7 +24,7 @@ g1 cmfb 0 VCCS outputn 0 -500m
 g0 cmfb 0 VCCS outputp 0 -500m
 e3 output 0 VCVS outputp outputn 1
 i0 cmfb 0 DC 'vcm'
-xinova cmfb 0 vddnet in_n in_p outputn outputp ssvcamp
+xinova cmfb 0 vddnet in_n in_p outputn outputp ss_vc_ota
 cload2 outputp 0 'c1'
 cload1 outputn 0 'c1'
 r0 cmfb 0 1
@@ -44,8 +42,8 @@ vdc vddnet 0 DC 'vdd'
 
 ************************************************
 ** make params acessible in control
-.csparam ib = {ib}
-.csparam c1 = {c1}
+.csparam ib_sp = {ib}
+.csparam cl_sp = {c1}
 ************************************************
 .control
 set units = degrees
@@ -55,23 +53,26 @@ set units = degrees
 ** overdrives.
 
 OP 
-let idd = mag(i(vdc))  
+let idd = mag(i(vdc))  - $&ib_sp
 print idd
+
+let cl = $&cl_sp
+print cl
 ** Overdrive and delta for  PMOS
-let   vov_mpm0 = @m.xinova.mpm0[vth]   - @m.xinova.mpm0[vgs] 
-let delta_mpm0 = @m.xinova.mpm0[vdsat] - @m.xinova.mpm0[vds]
+let   vov_mpm0 = @m.xinova.mpm0[vgs]   - @m.xinova.mpm0[vth] 
+let delta_mpm0 = @m.xinova.mpm0[vds] - @m.xinova.mpm0[vdsat]
 print vov_mpm0 delta_mpm0 
 
-let   vov_mpm1 = @m.xinova.mpm1[vth]   - @m.xinova.mpm1[vgs] 
-let delta_mpm1 = @m.xinova.mpm1[vdsat] - @m.xinova.mpm1[vds]
+let   vov_mpm1 = @m.xinova.mpm1[vgs]   - @m.xinova.mpm1[vth] 
+let delta_mpm1 = @m.xinova.mpm1[vds] - @m.xinova.mpm1[vdsat]
 print vov_mpm1 delta_mpm1 
 
-let   vov_mpm2 = @m.xinova.mpm2[vth]   - @m.xinova.mpm2[vgs] 
-let delta_mpm2 = @m.xinova.mpm2[vdsat] - @m.xinova.mpm2[vds]
+let   vov_mpm2 = @m.xinova.mpm2[vgs]   - @m.xinova.mpm2[vth] 
+let delta_mpm2 = @m.xinova.mpm2[vds] - @m.xinova.mpm2[vdsat]
 print vov_mpm2 delta_mpm2 
 
-let   vov_mpm3 = @m.xinova.mpm3[vth]   - @m.xinova.mpm3[vgs] 
-let delta_mpm3 = @m.xinova.mpm3[vdsat] - @m.xinova.mpm3[vds]
+let   vov_mpm3 = @m.xinova.mpm3[vgs]   - @m.xinova.mpm3[vth] 
+let delta_mpm3 = @m.xinova.mpm3[vds] - @m.xinova.mpm3[vdsat]
 print vov_mpm3 delta_mpm3 
 
 ** Overdrive and delta for NMOS
@@ -115,6 +116,8 @@ AC DEC 20 1 10G
 let vdb_out = vdb(output)
 let vp_out = vp(output)
 
+let count = length(frequency)
+echo "AC output $&count 3"
 print frequency vdb_out vp_out
 
 
@@ -122,6 +125,8 @@ print frequency vdb_out vp_out
 * Run noise
 NOISE V(output, 0) vip dec 20 0.01 10G
 print inoise_total onoise_total
+let count = length(noise2.frequency)
+echo "NOISE output $&count 3"
 print noise2.all
 
 quit

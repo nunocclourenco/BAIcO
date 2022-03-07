@@ -44,7 +44,7 @@ def compute_noise_meas(sim_results):
 
 def compute_ac_meas(sim_results):
     '''
-    Computes AC measures: DC gain (GAIN), -3dB cutoff frequency (FC), gain bandwith product (GBW), phase margin (PM)
+    Computes AC measures: DC gain (GDC), -3dB cutoff frequency (FC), gain bandwith product (GBW), phase margin (PM)
     param: sim_results: a dictionary with the simulation outputs for one corner. 
     
 
@@ -65,7 +65,7 @@ def compute_ac_meas(sim_results):
             pm = vp
 
 
-    sim_results["GAIN"] = gain
+    sim_results["GDC"] = gain
     if fc is not None: 
         sim_results["FC"] = fc
     if gbw is not None:

@@ -262,7 +262,7 @@ def simulate_default(circuit_path, corners=None):
   return circuit.simulate(sizing)
 
 def run_optimization(circuit_path, out_folder, corners=None, 
-         pop_size=32, iterations=100, mutation=0.2, crossover=0.6, seed=42):
+         pop_size=32, iterations=100, mutation=0.2, crossover=0.6, seed=42, stop_on_feas=False):
   np.random.seed(seed)
   random.seed(seed)
   nsga2=opt.NSGA2()
@@ -292,6 +292,9 @@ def run_optimization(circuit_path, out_folder, corners=None,
               file  
               )
           i = i + 1
+          if pop_cstr[pop_cstr.argmax()] == 0.0 and stop_on_feas:
+            break
+          
 
 
 

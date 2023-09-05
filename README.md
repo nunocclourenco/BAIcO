@@ -53,5 +53,5 @@ Volume 95,
 https://doi.org/10.1016/j.mejo.2019.104675.
 
 
-###### @2021 Instituto de Telecomunicações
+###### @2021 Nuno Lourenço - Instituto de Telecomunicações
 

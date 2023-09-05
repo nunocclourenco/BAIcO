@@ -1,0 +1,20 @@
+* Copyright 2021 Nuno Lourenço 
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+
+* Standard voltage MOS devices (1.2/1.8 etc...)
+.subckt nmos d g s b w=1e-6 l=0.15e-6 fingers=1 
+.param wf = 'w/fingers'
+m1 d g s b nmos w='wf' l='l' m='1*fingers'
+.ends
+
+.subckt pmos  d g s b w=1e-6 l=0.15e-6 fingers=1 
+.param wf = 'w/fingers'
+m1 d g s b pmos w='wf' l='l' m='1*fingers'
+.ends
+
+

@@ -1,0 +1,23 @@
+{
+    "ranges": [
+        {"params": ["_wn1","_wn2","_wn3","_wn5","_wn7","_wp0","_wp1","_wp3","_wp5"], "min": 1e-6, "max":200e-6, "grid": 0.1e-6},
+        {"params": ["_ln1","_ln3","_ln5","_ln7","_lp0","_lp1"], "min": 0.15e-6, "max":5e-6, "grid": 0.01e-6},
+        {"params": ["_nfn1","_nfn2", "_nfn3", "_nfn5", "_nfn7", "_nfp0", "_nfp1", "_nfp3", "_nfp5"], "min": 1, "max": 15, "grid": 1}
+    ],
+    "testbenches": ["tb_ac.cir"],
+    "objectives": [
+        "min IDD",
+        "max GBW",
+        "max GDC"
+    ],
+    "constraints": [
+        "GDC > 50",
+        "IDD < 50e-5",
+        "PM < 90",
+        "PM > 45",
+        "GBW > 15e6",
+        "FOM > 500",
+        "VOV_MPM0 VOV_MPM1 VOV_MPM3 VOV_MPM4 VOV_MPM5 VOV_MPM6 VOV_MNM1 VOV_MNM2 VOV_MNM3 VOV_MNM4 VOV_MNM5 VOV_MNM6 VOV_MNM7 VOV_MNM8 > 0.05",
+        "DELTA_MPM0 DELTA_MPM1 DELTA_MPM3 DELTA_MPM4 DELTA_MPM5 DELTA_MPM6 DELTA_MNM1 DELTA_MNM2 DELTA_MNM3 DELTA_MNM4 DELTA_MNM5 DELTA_MNM6 DELTA_MNM7 DELTA_MNM8 > 0.1"
+    ]
+}

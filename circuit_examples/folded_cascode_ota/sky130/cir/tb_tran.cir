@@ -1,0 +1,58 @@
+** NGSPICE Simulation bench
+.GLOBAL
+** Default values that can be used or modified in the corners
+.PARAM 
++ VDD=3.3 
++ VCM=1.65 
++ CL=6p 
++ IB=100u
++ VDD_MAX=3.63
++ VDD_MIN=2.97
++ T_MAX=75
++ T_MIN=0
+
+.TEMP 27.0
+**
+** Process, Voltage and Temperature settings for nominal.
+** Pyhton script replaces this include to simulate other corners
+**
+.include 'nominal.corner'
+
+**
+** Design variables for the circuit being simulated
+**
+.include 'design_var.inc'
+
+*********** Unit Under Test ********************
+.include "folded_cascode_ota.cir"
+
+*********** Test-bench *************************
+x1 0 ib vdd vout vip vout folded_cascode_ota
+c1 vout 0 {CL}
+v11 vip 0 PULSE 1.15 2.15 1e-3 500e-12 500e-12 1e-3 2e-3
+v10 vdd 0 DC={VDD}
+i1  vdd ib DC={IB}
+*********************************************************
+
+*********** Analysis ***************************
+.TEMP 25.0
+.OPTION NOACCT=1 NOINIT=1
+************************************************
+
+.control
+set units = degrees
+
+TRAN 0.00001 0.01 0
+
+meas TRAN trise_new TRIG V(vout) VAL=1.4  TD=0 RISE=4 TARG V(vout) VAL=1.9 TD=0 RISE=4
+meas TRAN tfall_new TRIG V(vout) VAL=1.9 TD=0 FALL=4 TARG V(vout) VAL=1.4 TD=0 FALL=4
+
+** SR V/us
+let sr = '(0.000001*(0.5)/(trise_new))'
+print sr
+
+
+quit
+.endc
+
+.END

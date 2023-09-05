@@ -12,6 +12,52 @@ from collections import namedtuple
 import ngspice_meas as ngmeas
 
 
+'''
+Current implementation execute one call to ngspice per simulation.
+As SKY130 models are very large, there is quite a simulation overhead.
+
+as future work to explore looping solutions using the control.
+Must confirm the alter works ok with bins and no reset is needed.
+
+------------------ --------------------------
+.control
+.include 'pipe.dat'
+
+*** loop over the elements to be simulated
+let row = 0
+while row < NROWS
+**** alters ****
+   alter r1 r = pipe_dat[row][0]
+
+
+**** analysis ****
+   op
+   print v(2)
+   let r_value = @r1[r] 
+   print r_value
+
+
+
+**** 
+   let row = row + 1
+end
+quit
+.endc
+
+
+--------------------- pipe.dat ----------------------------
+let NROWS=3
+let pipe_dat=vector(6)
+compose pipe_dat values 
++ 4e3 2
++ 5e3 3
++ 6e3 4
+reshape pipe_dat [3][2]
+
+
+
+'''
+
 # global definitions for filenames
 MEAS_OUT = '_meas.txt'
 VARS     = 'design_var.inc'
@@ -73,32 +119,35 @@ def parse_sim_results(cwd, meas_file):
                 line = line.strip() 
                 if (not line) or (line[0] == '*' ) or (line[0] == '-'): continue
 
-                elif "AC output" in line: 
-                    vector_id = "AC"
-                    vector_size =  int(line.split()[-1])
-                    vector_idx = 0
-                    sim_results[vector_id] = [None]*vector_size
-                elif "NOISE output" in line:
-                    vector_id = "NOISE"
-                    vector_size =  int(line.split()[-2])
-                    vector_row_size =  int(line.split()[-1])
-                    vector_idx = 0
-                    sim_results[vector_id] = np.full((vector_size, vector_row_size), np.NaN)
-                else:
-                    if "=" in line:
-                        content = line.split()
-                        if len(content) >= 3 and content[1] == '=': sim_results[content[0].upper()] = float(content[2])
-                    elif 'Index' in line:
-                        parse_vector = True
-                    elif parse_vector:
-                        content = line.split()
-                        try:
-                            sim_results[vector_id][vector_idx, :] = content[1:]
-                            vector_idx = vector_idx + 1
-                            if vector_idx == vector_size: parse_vector = False
-                        except Exception as e:
-                            logging.warning(e + "was raised when parsing " + line)
-
+                try: 
+                    if "AC output" in line: 
+                        vector_id = "AC"
+                        vector_size =  int(line.split()[-2])
+                        vector_row_size =  int(line.split()[-1])
+                        vector_idx = 0
+                        sim_results[vector_id] = np.full((vector_size, vector_row_size), np.NaN)
+                    elif "NOISE output" in line:
+                        vector_id = "NOISE"
+                        vector_size =  int(line.split()[-2])
+                        vector_row_size =  int(line.split()[-1])
+                        vector_idx = 0
+                        sim_results[vector_id] = np.full((vector_size, vector_row_size), np.NaN)
+                    else:
+                        if "=" in line:
+                            content = line.split()
+                            if len(content) >= 3 and content[1] == '=': sim_results[content[0].upper()] = float(content[2])
+                        elif 'Index' in line:
+                            parse_vector = True
+                        elif parse_vector:
+                            content = line.split()
+                            try:
+                                sim_results[vector_id][vector_idx, :] = content[1:]
+                                vector_idx = vector_idx + 1
+                                if vector_idx == vector_size: parse_vector = False
+                            except Exception as e:
+                                logging.warning(str(e) + " was raised when parsing " + line)
+                except ValueError as e:
+                    logging.warning(str(e) + " when parsing " + line )
 
     except FileNotFoundError:
         logging.warning(os.path.join(cwd, meas_file) + " file not found!")

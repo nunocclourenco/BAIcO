@@ -3,7 +3,7 @@
     While some could be computed using ngspice meas statments. We opted to save 
     the data and implement the measurments in Python as it more flexible and 
     better documented,easing the learning curve.
-    These fucntions are located in a separate module for ease of custumization.
+    These fucntions are located in a separate module for ease of customization.
 '''
 
 def compute_additional_measures(sim_results):
@@ -44,7 +44,7 @@ def compute_noise_meas(sim_results):
 
 def compute_ac_meas(sim_results):
     '''
-    Computes AC measures: DC gain (GAIN), -3dB cutoff frequency (FC), gain bandwith product (GBW), phase margin (PM)
+    Computes AC measures: DC gain (GDC), -3dB cutoff frequency (FC), gain bandwith product (GBW), phase margin (PM)
     param: sim_results: a dictionary with the simulation outputs for one corner. 
     
 
@@ -65,7 +65,7 @@ def compute_ac_meas(sim_results):
             pm = vp
 
 
-    sim_results["GAIN"] = gain
+    sim_results["GDC"] = gain
     if fc is not None: 
         sim_results["FC"] = fc
     if gbw is not None:
@@ -78,7 +78,7 @@ def compute_ac_meas(sim_results):
 
 def compute_foms(sim_results):
     '''
-    Computes FOMS is the respective measures are available
+    Computes FOMS if the respective measures are available
     param: sim_results: a dictionary with the simulation outputs for one corner.
     
         sim_results = "... , "AC": [(freq, vdb, vp),...], "NOISE":[(freq, inoise_spectrum, onoise_spectrum)]}

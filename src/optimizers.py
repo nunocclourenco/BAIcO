@@ -331,8 +331,7 @@ def environment_selection(pop_dec, pop_obj, pop_cstr, pop_data, n):
 
 
 class NSGA2:
-
-       
+     
 
     def minimize(self, problem, pop_size=100,  evaluations=100 * 500, mutation=0.2, crossover=0.8, initial_pop=None):
         """
@@ -371,11 +370,12 @@ class NSGA2:
             if len(index) < self.pop.shape[0] :              
                 select = np.in1d(range(self.pop.shape[0]), index)
                 self.pop[~select, :], self.pop_obj[~select, :], self.pop_cstr[~select], data = problem.individual(problem.initialize(self.pop.shape[0] - len(index)))
-                for i, v in zip(select, data):
-                    self.pop_data[i] = v
-            
-            
-
+                d = 0
+                for i in range(len(index)):
+                    if ~select[i]: 
+                        self.pop_data[i] = data[d]
+                        d = d + 1
+                        
         return self.pop, self.pop_obj,  self.pop_cstr, self.pop_data
 
 

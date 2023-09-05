@@ -1,0 +1,63 @@
+* Copyright 2021 Nuno Lourenço 
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+
+* Standard voltage MOS devices (1.2/1.8 etc...)
+.subckt nmos d g s b w=1e-6 l=0.15e-6 fingers=1 
+.param
++ wu = w*1e6
++ lu = l*1e6
++ nf = fingers
+
+XM1 d g s b sky130_fd_pr__nfet_01v8 L=lu W=wu ad='int((nf+1)/2) * wu/nf * 0.29' as='int((nf+2)/2) * wu/nf * 0.29'
++ pd='2*int((nf+1)/2) * (wu/nf + 0.29)' ps='2*int((nf+2)/2) * (wu/nf + 0.29)' nrd='0.29 / wu' nrs='0.29 / wu'
++ sa=0 sb=0 sd=0 mult=1 m=1 nf=fingers
+.ends
+
+.subckt pmos  d g s b w=1e-6 l=0.15e-6 fingers=1 
+.param
++ wu = w*1e6
++ lu = l*1e6
++ nf = fingers
+
+XM1 d g s b  VCCPIN VCCPIN sky130_fd_pr__pfet_01v8 L=lu W=wu ad='int((nf+1)/2) * wu/nf * 0.29' as='int((nf+2)/2) * wu/nf * 0.29'
++ pd='2*int((nf+1)/2) * (wu/nf + 0.29)' ps='2*int((nf+2)/2) * (wu/nf + 0.29)' nrd='0.29 / wu' nrs='0.29 / wu'
++ sa=0 sb=0 sd=0 mult=1 m=1 nf=nf
+.ends
+
+
+*3v3 MOS devices
+.subckt nmos3v3 d g s b w=1e-6 l=0.15e-6 fingers=1 
+.param
++ wu = w*1e6/fingers
++ lu = l*1e6
++ nf = 1
+
+
+XM1 d g s b sky130_fd_pr__nfet_g5v0d10v5 L=lu W=wu ad='int((nf+1)/2) * wu/nf * 0.29' as='int((nf+2)/2) * wu/nf * 0.29'
++ pd='2*int((nf+1)/2) * (wu/nf + 0.29)' ps='2*int((nf+2)/2) * (wu/nf + 0.29)' nrd='0.29 / wu' nrs='0.29 / wu'
++ sa=0 sb=0 sd=0 mult=fingers m=fingers nf=nf
+.ends
+
+.subckt pmos3v3  d g s b w=1e-6 l=0.15e-6 fingers=1 
+.param
++ wu = w*1e6/fingers
++ lu = l*1e6
++ nf = 1
+
+
+XM1 d g s b sky130_fd_pr__pfet_g5v0d10v5 L=lu W=wu ad='int((nf+1)/2) * wu/nf * 0.29' as='int((nf+2)/2) * wu/nf * 0.29'
++ pd='2*int((nf+1)/2) * (wu/nf + 0.29)' ps='2*int((nf+2)/2) * (wu/nf + 0.29)' nrd='0.29 / wu' nrs='0.29 / wu'
++ sa=0 sb=0 sd=0 mult=fingers m=fingers nf=nf
+.ends
+
+
+
+***** rpoly
+.subckt rpoly  r0 r1 b w=1e-6 l=0.15e-6 mult=1
+ XR1 r0 r1 b sky130_fd_pr__res_high_po w=w*1e6 l=l*1e6
+.ends

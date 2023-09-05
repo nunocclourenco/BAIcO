@@ -1,0 +1,23 @@
+*********** Unit Under Test ********************
+** Cell name: Single-Ended Folded Voltage Combiners
+**
+** Circuit from the paper 	Povoa, R.; Lourenco, N.; Horta, N.; Santos-Tavares, R.; Goes, J., 
+**	"Single-stage amplifiers with gain enhancement and improved energy-efficiency employing voltage-combiners," 
+**	in Very Large Scale Integration (VLSI-SoC), 2013 IFIP/IEEE 21st International Conference on , vol., no., pp.19-22, 7-9 Oct. 2013
+**  doi: 10.1109/VLSI-SoC.2013.6673238
+
+.subckt ss_vc_ota cmfb gnd vdd vin vip von vop
+xmnm4 net15  vip     crossa crossa   nmos3v3 w='_w4'     l='_l4'    fingers='_nf4'
+xmnm6 vdd    vip     crossb crossb   nmos3v3 w='_w6'     l='_l6'    fingers='_nf6'
+xmnm8 crossb vin     gnd     gnd     nmos3v3 w='_w8'     l='_l8'    fingers='_nf8'
+xmnm10 von   cmfb    gnd     gnd     nmos3v3 w='_w10'   l='_l10'   fingers='_nf10'
+xmnm11 vop   cmfb    gnd     gnd     nmos3v3 w='_w10'   l='_l10'   fingers='_nf10'
+xmnm5 net024 vin     crossb crossb   nmos3v3 w='_w4'     l='_l4'    fingers='_nf4'
+xmnm7 vdd    vin     crossa crossa   nmos3v3 w='_w6'     l='_l6'    fingers='_nf6'
+xmnm9 crossa vip     gnd     gnd     nmos3v3 w='_w8'     l='_l8'    fingers='_nf8'
+xmpm0 von    net15   vdd     vdd     pmos3v3 w='_w0'     l='_l0'    fingers='_nf0'
+xmpm1 net15  net15   vdd     vdd     pmos3v3 w='_w1'     l='_l1'    fingers='_nf1'
+xmpm3 vop    net024  vdd     vdd     pmos3v3 w='_w0'     l='_l0'    fingers='_nf0'
+xmpm2 net024 net024  vdd     vdd     pmos3v3 w='_w1'     l='_l1'    fingers='_nf1'
+.ends
+** End of subcircuit definition.

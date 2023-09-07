@@ -1,0 +1,4 @@
+[submodule "circuit_examples/device_models/sky130_fd_pr"]
+	path = circuit_examples/device_models/sky130_fd_pr
+	url = https://github.com/efabless/skywater-pdk-libs-sky130_fd_pr.git
+	branch = main

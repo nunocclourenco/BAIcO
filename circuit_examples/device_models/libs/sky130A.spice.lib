@@ -26,12 +26,23 @@
 * Typical corner (tt)
 .lib tt
 .option scale=1.0u
+.param MC_MM_SWITCH=0
+.param MC_PR_SWITCH=0
+.param corner_factor=1
+.param process_mc_factor=1
+.param mismatch_factor=1
 
-* MOSFET
-.include "../sky130/nfet_01v8__tt_min.spice"
-.include "../sky130/pfet_01v8__tt_min.spice"
-.include "../sky130/pfet_g5v0d10v5__tt_min.spice"
-.include "../sky130/nfet_g5v0d10v5__tt_min.spice"
+.include "../sky130_fd_pr/combined_models/continuous/parameters_fet_tt.spice"
+.include "../sky130_fd_pr/combined_models/continuous/parameters_res_nom.spice"
+.include "../sky130_fd_pr/combined_models/continuous/parameters_cap_nom.spice"
+
+* Include the model files
+.include "../sky130_fd_pr/combined_models/continuous/models_global.spice"
+.include "../sky130_fd_pr/combined_models/continuous/models_fet.spice"
+.include "../sky130_fd_pr/combined_models/continuous/models_bjt.spice"
+.include "../sky130_fd_pr/combined_models/continuous/models_diodes.spice"
+.include "../sky130_fd_pr/combined_models/continuous/models_resistors.spice"
+.include "../sky130_fd_pr/combined_models/continuous/models_capacitors.spice"
 
 * generic models
 .include "./sky130A.spice.mdl"
@@ -40,12 +51,25 @@
 
 .lib ss
 .option scale=1.0u
+.param MC_MM_SWITCH=0
+.param MC_PR_SWITCH=0
+.param corner_factor=1
+.param process_mc_factor=1
+.param mismatch_factor=1
 
-* MOSFET
-.include "../sky130/nfet_01v8__ss.spice"
-.include "../sky130/pfet_01v8__ss.spice"
-.include "../sky130/pfet_g5v0d10v5__ss.spice"
-.include "../sky130/nfet_g5v0d10v5__ss.spice"
+.include ../sky130_fd_pr/combined_models/continuous/parameters_fet_ss.spice
+.include ../sky130_fd_pr/combined_models/continuous/parameters_res_nom.spice
+.include ../sky130_fd_pr/combined_models/continuous/parameters_cap_nom.spice
+
+* Include the model files
+.include ../sky130_fd_pr/combined_models/continuous/models_global.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_fet.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_bjt.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_diodes.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_resistors.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_capacitors.spice
+
+
 
 * generic models
 .include "./sky130A.spice.mdl"
@@ -54,12 +78,25 @@
 
 .lib ff
 .option scale=1.0u
+.param MC_MM_SWITCH=0
+.param MC_PR_SWITCH=0
+.param corner_factor=1
+.param process_mc_factor=1
+.param mismatch_factor=1
 
-* MOSFET
-.include "../sky130/nfet_01v8__ff.spice"
-.include "../sky130/pfet_01v8__ff.spice"
-.include "../sky130/pfet_g5v0d10v5__ff.spice"
-.include "../sky130/nfet_g5v0d10v5__ff.spice"
+.include ../sky130_fd_pr/combined_models/continuous/parameters_fet_ff.spice
+.include ../sky130_fd_pr/combined_models/continuous/parameters_res_nom.spice
+.include ../sky130_fd_pr/combined_models/continuous/parameters_cap_nom.spice
+
+* Include the model files
+.include ../sky130_fd_pr/combined_models/continuous/models_global.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_fet.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_bjt.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_diodes.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_resistors.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_capacitors.spice
+
+
 
 * generic models
 .include "./sky130A.spice.mdl"
@@ -69,11 +106,24 @@
 .lib snfp
 .option scale=1.0u
 
-* MOSFET
-.include "../sky130/nfet_01v8__sf.spice"
-.include "../sky130/pfet_01v8__sf.spice"
-.include "../sky130/pfet_g5v0d10v5__sf.spice"
-.include "../sky130/nfet_g5v0d10v5__sf.spice"
+.param MC_MM_SWITCH=0
+.param MC_PR_SWITCH=0
+.param corner_factor=1
+.param process_mc_factor=1
+.param mismatch_factor=1
+
+.include ../sky130_fd_pr/combined_models/continuous/parameters_fet_sf.spice
+.include ../sky130_fd_pr/combined_models/continuous/parameters_res_nom.spice
+.include ../sky130_fd_pr/combined_models/continuous/parameters_cap_nom.spice
+
+* Include the model files
+.include ../sky130_fd_pr/combined_models/continuous/models_global.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_fet.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_bjt.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_diodes.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_resistors.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_capacitors.spice
+
 
 * generic models
 .include "./sky130A.spice.mdl"
@@ -82,11 +132,25 @@
 .lib fnsp
 .option scale=1.0u
 
-* MOSFET
-.include "../sky130/nfet_01v8__fs.spice"
-.include "../sky130/pfet_01v8__fs.spice"
-.include "../sky130/pfet_g5v0d10v5__fs.spice"
-.include "../sky130/nfet_g5v0d10v5__fs.spice"
+.param MC_MM_SWITCH=0
+.param MC_PR_SWITCH=0
+.param corner_factor=1
+.param process_mc_factor=1
+.param mismatch_factor=1
+
+.include ../sky130_fd_pr/combined_models/continuous/parameters_fet_fs.spice
+.include ../sky130_fd_pr/combined_models/continuous/parameters_res_nom.spice
+.include ../sky130_fd_pr/combined_models/continuous/parameters_cap_nom.spice
+
+* Include the model files
+.include ../sky130_fd_pr/combined_models/continuous/models_global.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_fet.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_bjt.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_diodes.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_resistors.spice
+.include ../sky130_fd_pr/combined_models/continuous/models_capacitors.spice
+
+
 
 * generic models
 .include "./sky130A.spice.mdl"

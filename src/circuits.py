@@ -6,12 +6,16 @@ Created on Feb 1, 2019
 import os
 import math
 import numpy as np
-import optimizers as opt
 import json
-import ngspice
+import logging
 import random
 import pandas as pd
 from datetime import datetime
+
+import optimizers as opt
+import ngspice
+
+
 
 class Circuit(opt.Problem):
     def __init__(self, folder, setup_file="circuit_setup.json", corners="corners.inc"):
@@ -277,7 +281,7 @@ def run_optimization(circuit_path, out_folder, corners=None,
         folded_cascode,
         pop_size=pop_size, evaluations=pop_size*iterations, 
         mutation=mutation, crossover=crossover):
-          
+          logging.info(f"{i} {pop_cstr[pop_cstr.argmax()]} {pop_data[pop_cstr.argmax()]}")
           print('\r',i, pop_cstr[pop_cstr.argmax()], pop_data[pop_cstr.argmax()], datetime.now().time(), end='', flush=True)
           with open("{}history_{}_{}_{}.json".format(out_folder,pop_size,seed, i), "w") as file: 
               json.dump(
